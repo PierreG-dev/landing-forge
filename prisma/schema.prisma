@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Landing {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  createdAt    DateTime @default(now())
+  companyName  String
+  sector       String
+  city         String
+  logoUrl      String?
+  phone        String?
+  email        String?
+  tagline      String?
+  service1     String?
+  service2     String?
+  service3     String?
+  themeId      String
+  colorComboId String
+  primaryHex   String
+  secondaryHex String
+  fontComboId  String
+  seed         Int
+  blocks       String
+  views        Int      @default(0)
+  savedVia     String
+}
