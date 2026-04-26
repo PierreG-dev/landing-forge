@@ -2,578 +2,363 @@ import type { ColorCombo } from "./types";
 
 export const colorCombos: ColorCombo[] = [
   {
-    id: "landingforge-forge-ember",
-    name: "Forge & Ember",
+    id: "lf-slate-copper",
+    name: "Slate & Copper",
     description:
-      "La chaleur maîtrisée d'un métal travaillé. Le contraste entre le cuivre chaud et le fond ardoise évoque l'excellence artisanale et la fiabilité industrielle.",
-    targetSectors: [
-      "artisanat haut de gamme",
-      "industrie créative",
-      "mobilier",
-      "architecture intérieure",
-    ],
-
-    mood: ["bold", "artisan", "organic", "decorated", "timeless", "textured"],
-
-    colors: {
-      primary: "#C06A2D",
-      secondary: "#4A6FA5",
-      surface: "#F5F0EB",
-      text: "#1E1A17",
-      textLight: "#6B5C50",
-    },
-
-    wcagAA: true,
-  },
-
-  {
-    id: "landingforge-celadon-ink",
-    name: "Celadon & Ink",
-    description:
-      "Un vert céladon soufflé sur un fond ivoire porte une sérénité éditoriale. L'encre profonde ancre la composition dans une autorité discrète.",
-    targetSectors: [
-      "conseil juridique",
-      "édition",
-      "santé bien-être",
-      "cabinet RH",
-    ],
-
-    mood: ["calm", "corporate", "editorial", "clean", "modern", "minimal"],
-
-    colors: {
-      primary: "#5B8C7E",
-      secondary: "#A0522D",
-      surface: "#F7F5F0",
-      text: "#1A1F1C",
-      textLight: "#5C6560",
-    },
-
-    wcagAA: true,
-  },
-
-  {
-    id: "landingforge-violet-dusk",
-    name: "Violet Dusk",
-    description:
-      "Un violet crépusculaire vibre contre un or pâle — alliance du luxe discret et de l'ambition créative. Le fond parchemin évite toute froideur.",
-    targetSectors: [
-      "agence créative",
-      "coaching premium",
-      "beauté luxe",
-      "événementiel",
-    ],
-
-    mood: ["luxury", "creative", "layered", "ornate", "bold", "timeless"],
-
-    colors: {
-      primary: "#6B3FA0",
-      secondary: "#C9A84C",
-      surface: "#F6F3EE",
-      text: "#1C1620",
-      textLight: "#6A5F74",
-    },
-
-    wcagAA: true,
-  },
-
-  {
-    id: "landingforge-nordic-salt",
-    name: "Nordic Salt",
-    description:
-      "Le bleu glacier rencontre un terracotta nordique — tension subtile entre rigueur technique et chaleur humaine. Fond brume pour une lisibilité absolue.",
-    targetSectors: [
-      "tech & SaaS",
-      "cabinet comptable",
-      "formation professionnelle",
-      "bureau d'études",
-    ],
-
-    mood: ["subtle", "technical", "geometric", "flat", "modern", "corporate"],
-
-    colors: {
-      primary: "#2E6E8E",
-      secondary: "#C47A5A",
-      surface: "#F2F4F5",
-      text: "#15252E",
-      textLight: "#546970",
-    },
-
-    wcagAA: true,
-  },
-
-  {
-    id: "landingforge-garden-press",
-    name: "Garden Press",
-    description:
-      "Un vert herboriste ancré dans un fond lin rappelle les imprimés botaniques. Frais, expert, accessible — la crédibilité sans la distance.",
-    targetSectors: [
-      "nutrition & diététique",
-      "cosmétique naturelle",
-      "paysagisme",
-      "alimentation bio",
-    ],
-
-    mood: ["friendly", "organic", "curved", "clean", "energetic", "artisan"],
-
-    colors: {
-      primary: "#3A7D44",
-      secondary: "#8B5E3C",
-      surface: "#F4F1EA",
-      text: "#1A2019",
-      textLight: "#596659",
-    },
-
-    wcagAA: true,
-  },
-  {
-    id: "encre-lin",
-    name: "Encre & Lin",
-    description:
-      "Un bleu nuit profond ancré dans la tradition, réchauffé par un cuivre artisanal. La surface en lin crème évoque le papier haut de gamme — premium sans froideur.",
-    targetSectors: [
-      "Conseil & expertise",
-      "Finance & patrimoine",
-      "Cabinet d'avocats",
-    ],
-
-    mood: ["luxury", "corporate", "editorial", "classic", "clean", "layered"],
-
-    colors: {
-      primary: "#1C3A5E",
-      secondary: "#C4853A",
-      surface: "#F5F1EB",
-      text: "#1A2030",
-      textLight: "#5A6E84",
-    },
-
-    wcagAA: true,
-  },
-
-  {
-    id: "brume-verte",
-    name: "Brume Verte",
-    description:
-      "Forêt après la pluie. Le vert profond inspire confiance et longévité, la terre sablée rappelle le terroir. Surface légèrement chlorophyllée — comme regarder un jardin par une fenêtre.",
-    targetSectors: [
-      "Agriculture & terroir",
-      "Bien-être & naturopathie",
-      "Architecture paysagère",
-    ],
-
-    mood: ["calm", "artisan", "organic", "timeless", "textured", "clean"],
-
-    colors: {
-      primary: "#2D6A4F",
-      secondary: "#9A7B4F",
-      surface: "#EFF4F0",
-      text: "#1B2E23",
-      textLight: "#557A64",
-    },
-
-    wcagAA: true,
-  },
-
-  {
-    id: "cendre-rose",
-    name: "Cendre Rose",
-    description:
-      "Complémentaires en tension douce — un rose poudré sophistiqué face à un bleu-canard discret. La surface rosée insuffle une chaleur féminine sans excès. Mémorable et inattendu.",
-    targetSectors: ["Beauté & cosmétique", "Mode & stylisme", "Studio créatif"],
-
-    mood: ["bold", "creative", "editorial", "modern", "flat", "decorated"],
-
-    colors: {
-      primary: "#9B4F6A",
-      secondary: "#4F7A8A",
-      surface: "#FAF6F7",
-      text: "#2C1A22",
-      textLight: "#7A5864",
-    },
-
-    wcagAA: true,
-  },
-
-  {
-    id: "obsidienne-doree",
-    name: "Obsidienne Dorée",
-    description:
-      "L'obscurité comme écrin. Un quasi-noir chaud (jamais froid) rehaussé d'un or mat qui ne crie pas, il murmure. La surface ivoire légèrement biscuitée équilibre l'intensité. Prestige absolu.",
-    targetSectors: [
-      "Joaillerie & horlogerie",
-      "Hôtellerie luxe",
-      "Gastronomie haut de gamme",
-    ],
-
-    mood: [
-      "luxury",
-      "subtle",
-      "geometric",
-      "timeless",
-      "ornate",
-      "overlapping",
-    ],
-
-    colors: {
-      primary: "#2A2320",
-      secondary: "#B8922A",
-      surface: "#F4F0EA",
-      text: "#1A1714",
-      textLight: "#6E5E50",
-    },
-
-    wcagAA: true,
-  },
-
-  {
-    id: "signal-clair",
-    name: "Signal Clair",
-    description:
-      "Split-complémentaire énergique : bleu technique face à un orange-braise qui dit \"on agit\". Surface teintée d'azur pâle — l'air d'une interface pro sans la froideur robotique. Confiance + action.",
-    targetSectors: ["SaaS & tech", "BTP & industrie", "Logistique & services"],
-
-    mood: ["energetic", "technical", "minimal", "modern", "angular", "flat"],
-
-    colors: {
-      primary: "#1A5CB8",
-      secondary: "#E85D20",
-      surface: "#F3F5F9",
-      text: "#0E1B30",
-      textLight: "#4E6A8E",
-    },
-
-    wcagAA: true,
-  },
-  {
-    id: "lf-001",
-    name: "Ardoise & Safran",
-    description:
-      "L'autorité sobre du gris ardoise tempérée par l'éclat chaleureux du safran. Sérieux sans froideur.",
-    targetSectors: [
-      "conseil",
-      "expertise comptable",
-      "architecture",
-      "juridique",
-    ],
+      "Sérénité industrielle rehaussée d'un accent chaud. Pour les cabinets de conseil et bureaux d'études.",
+    targetSectors: ["conseil", "ingénierie", "architecture"],
     mood: ["calm", "corporate", "geometric", "flat", "clean", "timeless"],
     colors: {
-      primary: "#2E3A47",
-      secondary: "#E8A020",
-      surface: "#F5F3EE",
-      text: "#1A2530",
-      textLight: "#5C6B7A",
+      primary: "#B06A3A",
+      secondary: "#4A6373",
+      surface: "#F4F2EE",
+      text: "#1E2A32",
+      textLight: "#4A6373",
     },
     wcagAA: true,
   },
 
   {
-    id: "lf-002",
-    name: "Forêt & Brume",
+    id: "lf-moss-ivory",
+    name: "Mousse & Ivoire",
     description:
-      "Vert profond ancré dans la nature, adouci par un blanc cassé brumeux. Évoque la durabilité et la confiance.",
-    targetSectors: [
-      "aménagement paysager",
-      "bien-être",
-      "bio & éco",
-      "naturopathie",
-    ],
-    mood: ["calm", "artisan", "organic", "layered", "decorated", "timeless"],
-    colors: {
-      primary: "#2D5016",
-      secondary: "#8FB87A",
-      surface: "#F2F5EF",
-      text: "#1C3410",
-      textLight: "#526B42",
-    },
-    wcagAA: true,
-  },
-
-  {
-    id: "lf-003",
-    name: "Terracotta & Lin",
-    description:
-      "Chaleur méditerranéenne entre terracotta brûlé et lin naturel. Artisanal, humain, immédiatement attachant.",
-    targetSectors: [
-      "artisanat",
-      "décoration intérieure",
-      "restauration",
-      "tourisme local",
-    ],
-    mood: ["bold", "artisan", "organic", "textured", "decorated", "classic"],
-    colors: {
-      primary: "#C1440E",
-      secondary: "#D4956A",
-      surface: "#FAF6F0",
-      text: "#2A1508",
-      textLight: "#7A4A30",
-    },
-    wcagAA: true,
-  },
-
-  {
-    id: "lf-004",
-    name: "Indigo & Platine",
-    description:
-      "Indigo électrique posé sur un platine froid. L'innovation technologique avec l'exigence du luxe discret.",
-    targetSectors: [
-      "tech",
-      "SaaS",
-      "fintech",
-      "cabinet de recrutement",
-      "agence digitale",
-    ],
-    mood: ["energetic", "luxury", "editorial", "angular", "clean", "modern"],
-    colors: {
-      primary: "#3730A3",
-      secondary: "#818CF8",
-      surface: "#F4F4F7",
-      text: "#16163A",
-      textLight: "#5B5EA6",
-    },
-    wcagAA: true,
-  },
-
-  {
-    id: "lf-005",
-    name: "Prune & Crème",
-    description:
-      "Prune profonde aux reflets velours sur crème douce. Féminité assumée et haut de gamme sans cliché.",
-    targetSectors: ["beauté", "cosmétique", "mode", "coaching", "événementiel"],
-    mood: ["subtle", "luxury", "curved", "overlapping", "ornate", "modern"],
-    colors: {
-      primary: "#5B2D5E",
-      secondary: "#C27BA0",
-      surface: "#FBF8F3",
-      text: "#2A1030",
-      textLight: "#8A5A8A",
-    },
-    wcagAA: true,
-  },
-  {
-    id: "forge-obsidian-ember",
-    name: "Obsidian Ember",
-    description:
-      "Noir profond réchauffé par une braise ambrée — autorité et chaleur artisanale.",
-    targetSectors: [
-      "forge",
-      "industrie",
-      "artisanat premium",
-      "conseil stratégique",
-    ],
-    mood: ["bold", "artisan", "angular", "decorated", "timeless"],
-    colors: {
-      primary: "#C8651A",
-      secondary: "#1A1A2E",
-      surface: "#F5F0EB",
-      text: "#1A1A2E",
-      textLight: "#5C4A3A",
-    },
-    wcagAA: true,
-  },
-
-  {
-    id: "forge-sage-linen",
-    name: "Sage & Linen",
-    description:
-      "Vert sauge doux sur lin chaud — expertise naturelle, confiance sans effort.",
-    targetSectors: [
-      "bien-être",
-      "conseil RH",
-      "architecture d'intérieur",
-      "agriculture bio",
-    ],
-    mood: ["calm", "artisan", "organic", "clean", "timeless"],
+      "Naturalité premium. Textures douces, confiance organique pour artisans et marques bio.",
+    targetSectors: ["cosmétique bio", "alimentation", "artisanat"],
+    mood: ["calm", "artisan", "organic", "layered", "clean", "timeless"],
     colors: {
       primary: "#4A7C59",
-      secondary: "#A67C52",
-      surface: "#F7F3EE",
-      text: "#2C2C28",
-      textLight: "#6B6558",
+      secondary: "#8C6E4B",
+      surface: "#F7F5EE",
+      text: "#1C2620",
+      textLight: "#4A7C59",
     },
     wcagAA: true,
   },
 
   {
-    id: "forge-cobalt-frost",
-    name: "Cobalt Frost",
+    id: "lf-navy-gold",
+    name: "Marine & Or",
     description:
-      "Bleu cobalt tranchant sur givré — précision technique, fiabilité immédiate.",
-    targetSectors: ["SaaS", "fintech", "cabinet comptable", "ingénierie"],
-    mood: ["bold", "corporate", "geometric", "flat", "modern"],
+      "Autorité classique et prestige. Idéal pour cabinets juridiques, finance, institutions.",
+    targetSectors: ["droit", "finance", "notariat"],
+    mood: ["bold", "luxury", "geometric", "flat", "ornate", "classic"],
     colors: {
-      primary: "#1B4FD8",
-      secondary: "#0EA5A0",
-      surface: "#F0F2F8",
-      text: "#0F1829",
-      textLight: "#4A5570",
+      primary: "#C49A28",
+      secondary: "#1B2D4F",
+      surface: "#F5F3EE",
+      text: "#0F1C30",
+      textLight: "#1B2D4F",
     },
     wcagAA: true,
   },
 
   {
-    id: "forge-plum-gold",
-    name: "Plum & Gold",
+    id: "lf-terracotta-sand",
+    name: "Terracotta & Sable",
     description:
-      "Prune velouté rehaussé d'or — luxe accessible, prestige mémorable.",
-    targetSectors: [
-      "immobilier haut de gamme",
-      "juriste",
-      "événementiel",
-      "mode",
+      "Chaleur méditerranéenne et savoir-faire. Pour décorateurs, hôtellerie, restauration haut de gamme.",
+    targetSectors: ["hôtellerie", "restauration", "décoration"],
+    mood: [
+      "energetic",
+      "artisan",
+      "organic",
+      "textured",
+      "decorated",
+      "timeless",
     ],
-    mood: ["subtle", "luxury", "editorial", "layered", "classic"],
     colors: {
-      primary: "#6B3FA0",
-      secondary: "#C9A84C",
-      surface: "#F6F3F9",
-      text: "#1E1428",
-      textLight: "#6B5F7A",
+      primary: "#C05A3A",
+      secondary: "#8C7355",
+      surface: "#F8F3EC",
+      text: "#2A1A10",
+      textLight: "#8C7355",
     },
     wcagAA: true,
   },
 
   {
-    id: "forge-terracotta-sky",
-    name: "Terracotta Sky",
+    id: "lf-plum-silver",
+    name: "Prune & Argent",
     description:
-      "Terre cuite généreuse face à un ciel céladon — chaleur méditerranéenne, élan créatif.",
-    targetSectors: [
-      "restauration",
-      "tourisme",
-      "studio créatif",
-      "artisanat local",
-    ],
-    mood: ["energetic", "friendly", "organic", "curved", "modern"],
+      "Sophistication discrète et modernité. Pour cliniques esthétiques, parfumeurs, créateurs de mode.",
+    targetSectors: ["esthétique", "mode", "parfumerie"],
+    mood: ["subtle", "luxury", "editorial", "flat", "clean", "modern"],
     colors: {
-      primary: "#C0552A",
-      secondary: "#6A9BAF",
-      surface: "#FBF5F0",
-      text: "#271610",
-      textLight: "#7A5A4F",
+      primary: "#6B3D6E",
+      secondary: "#8A9BA8",
+      surface: "#F5F2F5",
+      text: "#1E1220",
+      textLight: "#6B3D6E",
     },
-    wcagAA: true,
-  },
-  {
-    id: "landingforge-aurora",
-    name: "Aurora Boréale",
-    description:
-      "Un vert céladon profond rencontre un violet améthyste — tension lumineuse entre nature et magie. Évoque la clarté, la rareté, la précision artisanale.",
-    targetSectors: [
-      "tech",
-      "bien-être premium",
-      "conseil stratégique",
-      "cosmétiques naturels",
-    ],
-
-    mood: ["calm", "luxury", "organic", "layered", "clean", "timeless"],
-
-    colors: {
-      primary: "#2D6A6A",
-      secondary: "#7B5EA7",
-      surface: "#F4F3F0",
-      text: "#1A1F2E",
-      textLight: "#4A5568",
-    },
-
     wcagAA: true,
   },
 
   {
-    id: "landingforge-terracotta-ink",
-    name: "Terracotta & Encre",
+    id: "lf-cobalt-cream",
+    name: "Cobalt & Crème",
     description:
-      "Terracotta chaleureux contre un bleu nuit dense — dualité artisanat/modernité. Ancré, sincère, mémorable pour les marques à fort caractère.",
-    targetSectors: [
-      "architecture",
-      "immobilier de caractère",
-      "gastronomie",
-      "artisanat haut de gamme",
-    ],
-
-    mood: ["bold", "artisan", "angular", "decorated", "classic"],
-
+      "Expertise technique sublimée. Pour ESN, SaaS, cabinets IT et startups B2B.",
+    targetSectors: ["tech", "SaaS", "conseil IT"],
+    mood: ["bold", "technical", "geometric", "angular", "clean", "modern"],
     colors: {
-      primary: "#C1623F",
-      secondary: "#1E3A5F",
-      surface: "#FAF7F2",
-      text: "#1C1C1C",
-      textLight: "#5C5C5C",
+      primary: "#1A4DB5",
+      secondary: "#3A7DC4",
+      surface: "#F4F5F9",
+      text: "#0B1832",
+      textLight: "#1A4DB5",
     },
-
     wcagAA: true,
   },
 
   {
-    id: "landingforge-velvet-slate",
-    name: "Velours & Ardoise",
+    id: "lf-emerald-graphite",
+    name: "Émeraude & Graphite",
     description:
-      "Un bordeaux velouté porté par un gris ardoise élégant. Palette de confiance absolue — sobre, haut de gamme, intemporelle.",
-    targetSectors: [
-      "cabinet d'avocats",
-      "finance",
-      "RH executive",
-      "assurance premium",
-    ],
-
-    mood: ["subtle", "corporate", "editorial", "flat", "bare", "timeless"],
-
+      "Nature puissante et direction assumée. Pour cabinets de développement durable, greentech, ESG.",
+    targetSectors: ["greentech", "ESG", "environnement"],
+    mood: ["bold", "corporate", "geometric", "layered", "clean", "modern"],
     colors: {
-      primary: "#8B2346",
-      secondary: "#5A6472",
-      surface: "#F2F1EF",
-      text: "#1D1D1D",
-      textLight: "#636B74",
+      primary: "#1A6B4A",
+      secondary: "#3A4A42",
+      surface: "#F2F5F3",
+      text: "#0E1F17",
+      textLight: "#1A6B4A",
     },
-
     wcagAA: true,
   },
 
   {
-    id: "landingforge-citrus-ink",
-    name: "Citrus & Nuit",
+    id: "lf-rose-taupe",
+    name: "Rose Poudré & Taupe",
     description:
-      "Jaune safran vibrant sur fond nuit profonde — contraste audacieux à fort impact visuel. Énergie créative maîtrisée pour les marques qui osent.",
-    targetSectors: [
-      "agences créatives",
-      "startups B2C",
-      "événementiel",
-      "formation professionnelle",
-    ],
-
-    mood: ["energetic", "creative", "typographic", "overlapping", "modern"],
-
+      "Féminité élégante et chaleur bienveillante. Santé féminine, bien-être, sophrologie.",
+    targetSectors: ["santé", "bien-être", "coaching"],
+    mood: ["calm", "friendly", "organic", "curved", "clean", "modern"],
     colors: {
-      primary: "#E8A020",
-      secondary: "#1B2340",
-      surface: "#F7F5EF",
-      text: "#111827",
-      textLight: "#4B5563",
+      primary: "#C47A8A",
+      secondary: "#8A7570",
+      surface: "#F8F3F2",
+      text: "#2A1A1C",
+      textLight: "#8A7570",
     },
-
     wcagAA: true,
   },
 
   {
-    id: "landingforge-sage-linen",
-    name: "Sauge & Lin",
+    id: "lf-midnight-amber",
+    name: "Minuit & Ambre",
     description:
-      "Vert sauge doux accompagné d'un brun lin chaud — palette respirante, éthique, sincère. Inspire confiance sans effort, comme une poignée de main ferme.",
-    targetSectors: [
-      "santé & médecine douce",
-      "alimentation bio",
-      "coaching",
-      "artisanat textile",
-    ],
-
-    mood: ["calm", "friendly", "organic", "wavy", "clean", "timeless"],
-
+      "Caractère nocturne et chaleur intime. Bars à vins, cave, épicerie fine, spiritueux.",
+    targetSectors: ["cave", "épicerie fine", "spiritueux"],
+    mood: ["bold", "luxury", "editorial", "typographic", "ornate", "classic"],
     colors: {
-      primary: "#6B8F71",
-      secondary: "#A07850",
-      surface: "#F5F2EC",
-      text: "#222B22",
-      textLight: "#5A6455",
+      primary: "#C48A2A",
+      secondary: "#2A2035",
+      surface: "#F5F2E8",
+      text: "#170E04",
+      textLight: "#7A6040",
     },
+    wcagAA: true,
+  },
 
+  {
+    id: "lf-sage-stone",
+    name: "Sauge & Pierre",
+    description:
+      "Sérénité minimaliste et santé holistique. Yoga, méditation, retraites bien-être.",
+    targetSectors: ["yoga", "méditation", "naturopathie"],
+    mood: ["calm", "artisan", "minimal", "flat", "bare", "timeless"],
+    colors: {
+      primary: "#5A7A62",
+      secondary: "#8A8A80",
+      surface: "#F3F4F0",
+      text: "#1A2018",
+      textLight: "#5A7A62",
+    },
+    wcagAA: true,
+  },
+
+  {
+    id: "lf-burgundy-linen",
+    name: "Bordeaux & Lin",
+    description:
+      "Tradition et raffinement du terroir. Domaines viticoles, traiteur gastronomique, fromages.",
+    targetSectors: ["viticulture", "gastronomie", "terroir"],
+    mood: ["subtle", "artisan", "organic", "textured", "decorated", "classic"],
+    colors: {
+      primary: "#7A2035",
+      secondary: "#8A7A60",
+      surface: "#F7F2EE",
+      text: "#200B10",
+      textLight: "#7A2035",
+    },
+    wcagAA: true,
+  },
+
+  {
+    id: "lf-sky-chalk",
+    name: "Ciel & Craie",
+    description:
+      "Légèreté créative et rigueur douce. Design, communication, studios créatifs.",
+    targetSectors: ["design", "communication", "studio"],
+    mood: ["calm", "creative", "editorial", "wavy", "clean", "modern"],
+    colors: {
+      primary: "#3A8AC4",
+      secondary: "#6AAAD4",
+      surface: "#F2F6FA",
+      text: "#0A1E30",
+      textLight: "#3A8AC4",
+    },
+    wcagAA: true,
+  },
+
+  {
+    id: "lf-saffron-white",
+    name: "Safran & Blanc Chaud",
+    description:
+      "Énergie vitale et optimisme expert. Nutrition, coaching sportif, médecine préventive.",
+    targetSectors: ["nutrition", "sport", "médecine préventive"],
+    mood: ["energetic", "friendly", "organic", "curved", "clean", "modern"],
+    colors: {
+      primary: "#C47A18",
+      secondary: "#E8A84A",
+      surface: "#FAF6EE",
+      text: "#261800",
+      textLight: "#7A5010",
+    },
+    wcagAA: true,
+  },
+
+  {
+    id: "lf-mauve-ecru",
+    name: "Mauve & Écru",
+    description:
+      "Intimité chaleureuse et créativité apaisée. Décorateurs d'intérieur, photographes, artistes.",
+    targetSectors: ["intérieur", "photographie", "art"],
+    mood: [
+      "subtle",
+      "creative",
+      "editorial",
+      "layered",
+      "decorated",
+      "timeless",
+    ],
+    colors: {
+      primary: "#7A5A8A",
+      secondary: "#8A7A6A",
+      surface: "#F6F2F4",
+      text: "#1E1220",
+      textLight: "#7A5A8A",
+    },
+    wcagAA: true,
+  },
+
+  {
+    id: "lf-teal-ivory",
+    name: "Paon & Ivoire",
+    description:
+      "Confiance médicale et chaleur humaine. Cliniques, cabinets dentaires, paramédicaux.",
+    targetSectors: ["médical", "dentaire", "paramédical"],
+    mood: ["calm", "corporate", "geometric", "flat", "clean", "modern"],
+    colors: {
+      primary: "#1A7A7A",
+      secondary: "#4AAAAA",
+      surface: "#F2F8F8",
+      text: "#0A1E1E",
+      textLight: "#1A7A7A",
+    },
+    wcagAA: true,
+  },
+
+  {
+    id: "lf-ochre-slate",
+    name: "Ocre & Ardoise",
+    description:
+      "Héritage contemporain. Pour architectes, agences immobilières prestige, promoteurs.",
+    targetSectors: ["immobilier", "architecture", "promotion"],
+    mood: ["bold", "corporate", "geometric", "angular", "clean", "timeless"],
+    colors: {
+      primary: "#A87A28",
+      secondary: "#4A5A6A",
+      surface: "#F5F3EC",
+      text: "#1A1408",
+      textLight: "#4A5A6A",
+    },
+    wcagAA: true,
+  },
+
+  {
+    id: "lf-raspberry-chalk",
+    name: "Framboise & Craie",
+    description:
+      "Audace féminine et conviction créative. Agences marketing, brand studios, médias.",
+    targetSectors: ["marketing", "brand", "médias"],
+    mood: [
+      "energetic",
+      "creative",
+      "editorial",
+      "overlapping",
+      "clean",
+      "modern",
+    ],
+    colors: {
+      primary: "#B52A55",
+      secondary: "#D4607A",
+      surface: "#F8F2F4",
+      text: "#200A10",
+      textLight: "#B52A55",
+    },
+    wcagAA: true,
+  },
+
+  {
+    id: "lf-pine-sand",
+    name: "Pin & Sable Doré",
+    description:
+      "Nature et durabilité luxueuse. Éco-construction, matériaux bio-sourcés, charpentiers haut de gamme.",
+    targetSectors: ["construction", "éco-habitat", "artisanat bois"],
+    mood: ["calm", "artisan", "organic", "textured", "clean", "timeless"],
+    colors: {
+      primary: "#3A5A38",
+      secondary: "#A08050",
+      surface: "#F5F3EA",
+      text: "#101A0E",
+      textLight: "#3A5A38",
+    },
+    wcagAA: true,
+  },
+
+  {
+    id: "lf-indigo-cream",
+    name: "Indigo & Crème",
+    description:
+      "Profondeur intellectuelle et précision. Éditeurs, avocats d'affaires, think tanks, formation professionnelle.",
+    targetSectors: ["édition", "formation", "think tank"],
+    mood: ["subtle", "luxury", "editorial", "typographic", "bare", "classic"],
+    colors: {
+      primary: "#2A2A7A",
+      secondary: "#5A5AAA",
+      surface: "#F4F4F8",
+      text: "#0A0A20",
+      textLight: "#2A2A7A",
+    },
+    wcagAA: true,
+  },
+
+  {
+    id: "lf-copper-fog",
+    name: "Cuivre & Brume",
+    description:
+      "Artisanat d'exception et modernité poétique. Joailliers, orfèvres, studios de création sur mesure.",
+    targetSectors: ["joaillerie", "orfèvrerie", "luxe artisanal"],
+    mood: ["subtle", "luxury", "organic", "curved", "decorated", "timeless"],
+    colors: {
+      primary: "#A0622A",
+      secondary: "#7A8A92",
+      surface: "#F6F3EE",
+      text: "#1E1208",
+      textLight: "#6A5A4A",
+    },
     wcagAA: true,
   },
 ];

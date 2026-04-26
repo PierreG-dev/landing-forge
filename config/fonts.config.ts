@@ -3,18 +3,16 @@ import type { FontCombo } from "./types";
 export const fontCombos: FontCombo[] = [
   {
     id: "forge-001",
-    name: "Obsidian Editorial",
+    name: "Regal Authority",
     description:
-      "Un serif à forte personnalité en display, ancré par un sans-serif neutre et lisible. Autorité sans rigidité.",
+      "Playfair Display s'impose avec noblesse, IBM Plex Sans ancre la lecture dans la clarté moderne. Un duo qui respire la crédibilité institutionnelle.",
     targetSectors: [
-      "conseil",
+      "cabinet conseil",
+      "notariat",
       "finance",
-      "cabinet d'avocats",
       "immobilier haut de gamme",
     ],
-
-    mood: ["luxury", "editorial", "bold", "classic", "angular", "clean"],
-
+    mood: ["luxury", "classic", "editorial", "clean", "timeless", "corporate"],
     fonts: {
       display: {
         family: "Playfair Display",
@@ -22,214 +20,77 @@ export const fontCombos: FontCombo[] = [
         variable: "--font-display",
       },
       body: {
-        family: "Inter",
-        weights: [400, 500],
+        family: "IBM Plex Sans",
+        weights: [400, 500, 600],
         variable: "--font-body",
       },
       accent: {
-        family: "Inter",
-        weights: [600],
+        family: "IBM Plex Sans",
+        weights: [500, 700],
         variable: "--font-accent",
       },
     },
-
     pairing: {
       contrast: "high",
       style: "serif-sans",
-      mood: ["luxury", "editorial", "bold", "classic", "angular", "clean"],
+      mood: [
+        "luxury",
+        "classic",
+        "editorial",
+        "clean",
+        "timeless",
+        "corporate",
+      ],
     },
-
     googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap",
+      "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap",
   },
 
   {
     id: "forge-002",
-    name: "Atelier Vivant",
+    name: "Craft & Precision",
     description:
-      "Display humaniste aux courbes généreuses, corps texte géométrique précis. Chaleur artisanale avec une finition moderne.",
+      "Cormorant Garamond exhale l'artisanat d'antan, DM Sans lui offre une modernité sans artifice. Le mariage du savoir-faire et de l'efficacité.",
     targetSectors: [
-      "artisan",
+      "artisan créateur",
+      "maroquinerie",
       "restauration gastronomique",
-      "décoration intérieure",
-      "mode indépendante",
+      "épicerie fine",
     ],
-
-    mood: ["artisan", "friendly", "organic", "warm", "curved", "timeless"],
-
+    mood: ["artisan", "timeless", "organic", "clean", "subtle", "decorated"],
     fonts: {
       display: {
         family: "Cormorant Garamond",
         weights: [600, 700],
         variable: "--font-display",
       },
-      body: {
-        family: "DM Sans",
-        weights: [400, 500],
-        variable: "--font-body",
-      },
+      body: { family: "DM Sans", weights: [400, 500], variable: "--font-body" },
       accent: {
-        family: "DM Sans",
-        weights: [600, 700],
+        family: "Cormorant Garamond",
+        weights: [400, 600],
         variable: "--font-accent",
       },
     },
-
     pairing: {
       contrast: "high",
       style: "serif-sans",
-      mood: ["artisan", "friendly", "organic", "warm", "curved", "timeless"],
+      mood: ["artisan", "timeless", "organic", "clean", "subtle", "decorated"],
     },
-
     googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;600;700&display=swap",
+      "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap",
   },
 
   {
     id: "forge-003",
-    name: "Signal Propre",
+    name: "Signal & Structure",
     description:
-      "Deux sans-serif de la même famille de pensée mais de caractères distincts. Efficacité technique, lisibilité maximale, confiance immédiate.",
-    targetSectors: ["SaaS", "tech PME", "cabinet comptable", "services B2B"],
-
-    mood: ["corporate", "technical", "minimal", "geometric", "flat", "modern"],
-
+      "Space Grotesk apporte une énergie tech sans froideur, Inter assure une lisibilité irréprochable. Un duo SaaS qui inspire confiance et modernité.",
+    targetSectors: ["SaaS", "tech startup", "agence digitale", "cybersécurité"],
+    mood: ["technical", "modern", "geometric", "bold", "flat", "corporate"],
     fonts: {
       display: {
         family: "Space Grotesk",
         weights: [600, 700],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Nunito Sans",
-        weights: [400, 500],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "Space Grotesk",
-        weights: [500],
-        variable: "--font-accent",
-      },
-    },
-
-    pairing: {
-      contrast: "medium",
-      style: "sans-sans",
-      mood: [
-        "corporate",
-        "technical",
-        "minimal",
-        "geometric",
-        "flat",
-        "modern",
-      ],
-    },
-
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Nunito+Sans:wght@400;500&display=swap",
-  },
-
-  {
-    id: "forge-004",
-    name: "Terroir Signature",
-    description:
-      "Display script élégant tempéré par un serif de labeur irréprochable. Signature visible, lecture confortable.",
-    targetSectors: [
-      "domaine viticole",
-      "épicerie fine",
-      "hôtellerie boutique",
-      "cosmétique naturel",
-    ],
-
-    mood: ["luxury", "artisan", "organic", "ornate", "classic", "layered"],
-
-    fonts: {
-      display: {
-        family: "Satisfy",
-        weights: [400],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Lora",
-        weights: [400, 500],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "Lora",
-        weights: [600, 700],
-        variable: "--font-accent",
-      },
-    },
-
-    pairing: {
-      contrast: "high",
-      style: "display-sans",
-      mood: ["luxury", "artisan", "organic", "ornate", "classic", "layered"],
-    },
-
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Satisfy&family=Lora:wght@400;500;600;700&display=swap",
-  },
-
-  {
-    id: "forge-005",
-    name: "Bureau Moderne",
-    description:
-      "Display condensé au caractère affirmé, corps texte géométrique aéré. Énergie éditoriale au service d'une identité PME ambitieuse.",
-    targetSectors: [
-      "agence créative",
-      "marketing digital",
-      "communication",
-      "studio photo/vidéo",
-    ],
-
-    mood: ["creative", "bold", "editorial", "energetic", "angular", "modern"],
-
-    fonts: {
-      display: {
-        family: "Barlow Condensed",
-        weights: [700, 800],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Jost",
-        weights: [400, 500],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "Jost",
-        weights: [600, 700],
-        variable: "--font-accent",
-      },
-    },
-
-    pairing: {
-      contrast: "medium",
-      style: "sans-sans",
-      mood: ["creative", "bold", "editorial", "energetic", "angular", "modern"],
-    },
-
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Jost:wght@400;500;600;700&display=swap",
-  },
-  {
-    id: "forge-001",
-    name: "Sovereign Editorial",
-    description:
-      "Playfair Display s'impose avec autorité, Inter assure une lisibilité irréprochable. Un classique du haut de gamme éditorial.",
-    targetSectors: [
-      "cabinet conseil",
-      "immobilier prestige",
-      "finance",
-      "juridique",
-    ],
-
-    mood: ["luxury", "editorial", "classic", "bold", "timeless", "clean"],
-
-    fonts: {
-      display: {
-        family: "Playfair Display",
-        weights: [400, 700, 900],
         variable: "--font-display",
       },
       body: {
@@ -238,87 +99,247 @@ export const fontCombos: FontCombo[] = [
         variable: "--font-body",
       },
       accent: {
-        family: "Inter",
-        weights: [300, 400],
+        family: "Space Grotesk",
+        weights: [500, 700],
         variable: "--font-accent",
       },
     },
-
     pairing: {
-      contrast: "high",
-      style: "serif-sans",
-      mood: ["luxury", "editorial", "classic", "bold", "timeless", "clean"],
+      contrast: "medium",
+      style: "sans-sans",
+      mood: ["technical", "modern", "geometric", "bold", "flat", "corporate"],
     },
-
     googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap",
+      "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
   },
 
   {
-    id: "forge-002",
-    name: "Atelier Vivant",
+    id: "forge-004",
+    name: "Warm Authority",
     description:
-      "Cormorant Garamond apporte une élégance manuscrite et fragile, DM Sans la stabilise avec douceur. Pour les créatifs qui veulent du caractère sans l'arrogance.",
-    targetSectors: [
-      "studio design",
-      "artisanat premium",
-      "mode",
-      "décoration intérieure",
-    ],
-
-    mood: [
-      "artisan",
-      "organic",
-      "editorial",
-      "subtle",
-      "timeless",
-      "decorated",
-    ],
-
+      "Fraunces saisit l'attention avec ses formes optiques expressives, Nunito Sans crée une chaleur conversationnelle rare dans le corps de texte.",
+    targetSectors: ["santé bien-être", "coaching", "RH", "formation"],
+    mood: ["friendly", "modern", "organic", "curved", "calm", "timeless"],
     fonts: {
       display: {
-        family: "Cormorant Garamond",
-        weights: [300, 400, 600],
+        family: "Fraunces",
+        weights: [700, 900],
         variable: "--font-display",
       },
       body: {
-        family: "DM Sans",
-        weights: [400, 500],
+        family: "Nunito Sans",
+        weights: [400, 600],
         variable: "--font-body",
       },
       accent: {
-        family: "Cormorant Garamond",
-        weights: [300, 400],
+        family: "Nunito Sans",
+        weights: [700],
         variable: "--font-accent",
       },
     },
+    pairing: {
+      contrast: "high",
+      style: "serif-sans",
+      mood: ["friendly", "modern", "organic", "curved", "calm", "timeless"],
+    },
+    googleFontsUrl:
+      "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Nunito+Sans:wght@400;600;700&display=swap",
+  },
 
+  {
+    id: "forge-005",
+    name: "The Editorial",
+    description:
+      "Libre Baskerville pose une autorité journalistique, Source Sans 3 tient la cadence de lecture sans jamais fléchir. La presse de qualité, version web.",
+    targetSectors: ["média", "agence de presse", "blog premium", "éditeur"],
+    mood: ["editorial", "classic", "layered", "corporate", "calm", "timeless"],
+    fonts: {
+      display: {
+        family: "Libre Baskerville",
+        weights: [700],
+        variable: "--font-display",
+      },
+      body: {
+        family: "Source Sans 3",
+        weights: [400, 600],
+        variable: "--font-body",
+      },
+      accent: {
+        family: "Libre Baskerville",
+        weights: [400, 700],
+        variable: "--font-accent",
+      },
+    },
     pairing: {
       contrast: "high",
       style: "serif-sans",
       mood: [
-        "artisan",
-        "organic",
         "editorial",
-        "subtle",
+        "classic",
+        "layered",
+        "corporate",
+        "calm",
         "timeless",
-        "decorated",
       ],
     },
-
     googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@400;500&display=swap",
+      "https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap",
   },
 
   {
-    id: "forge-003",
-    name: "Signal Fort",
+    id: "forge-006",
+    name: "Geometric Power",
     description:
-      "Syne s'impose en display géométrique avec une énergie presque brutale, Nunito l'adoucit en body pour rester accessible. Idéal pour les marques tech qui veulent paraître humaines.",
-    targetSectors: ["startup tech", "SaaS", "agence digitale", "formation"],
+      "Outfit donne un souffle contemporain aux titres, Manrope tisse un corps de texte d'une régularité géométrique apaisante. Minimalisme à fort coefficient de confiance.",
+    targetSectors: [
+      "architecture",
+      "design d'intérieur",
+      "mobilier premium",
+      "promotion immobilière",
+    ],
+    mood: ["minimal", "modern", "geometric", "clean", "calm", "corporate"],
+    fonts: {
+      display: {
+        family: "Outfit",
+        weights: [700, 800],
+        variable: "--font-display",
+      },
+      body: {
+        family: "Manrope",
+        weights: [400, 500, 600],
+        variable: "--font-body",
+      },
+      accent: {
+        family: "Manrope",
+        weights: [700, 800],
+        variable: "--font-accent",
+      },
+    },
+    pairing: {
+      contrast: "low",
+      style: "sans-sans",
+      mood: ["minimal", "modern", "geometric", "clean", "calm", "corporate"],
+    },
+    googleFontsUrl:
+      "https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Manrope:wght@400;500;600;700;800&display=swap",
+  },
 
-    mood: ["energetic", "geometric", "modern", "bold", "friendly", "flat"],
+  {
+    id: "forge-007",
+    name: "Velvet & Steel",
+    description:
+      "Abril Fatface frappe fort avec ses empattements vertigineux, Lato absorbe le choc avec une souplesse athlétique. Contraste maximum, élégance assurée.",
+    targetSectors: ["mode", "beauté", "cosmétiques", "lifestyle premium"],
+    mood: ["bold", "luxury", "editorial", "ornate", "typographic", "creative"],
+    fonts: {
+      display: {
+        family: "Abril Fatface",
+        weights: [400],
+        variable: "--font-display",
+      },
+      body: {
+        family: "Lato",
+        weights: [300, 400, 700],
+        variable: "--font-body",
+      },
+      accent: { family: "Lato", weights: [700], variable: "--font-accent" },
+    },
+    pairing: {
+      contrast: "high",
+      style: "display-sans",
+      mood: [
+        "bold",
+        "luxury",
+        "editorial",
+        "ornate",
+        "typographic",
+        "creative",
+      ],
+    },
+    googleFontsUrl:
+      "https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@300;400;700&display=swap",
+  },
 
+  {
+    id: "forge-008",
+    name: "Green Roots",
+    description:
+      "Josefin Sans trace des lignes géométriques et sincères, Karla accompagne en toute discrétion. Un pairing qui sent la sève et l'engagement.",
+    targetSectors: [
+      "agriculture bio",
+      "alimentation responsable",
+      "RSE",
+      "éco-construction",
+    ],
+    mood: ["artisan", "calm", "geometric", "clean", "friendly", "modern"],
+    fonts: {
+      display: {
+        family: "Josefin Sans",
+        weights: [600, 700],
+        variable: "--font-display",
+      },
+      body: { family: "Karla", weights: [400, 500], variable: "--font-body" },
+      accent: { family: "Karla", weights: [700], variable: "--font-accent" },
+    },
+    pairing: {
+      contrast: "medium",
+      style: "sans-sans",
+      mood: ["artisan", "calm", "geometric", "clean", "friendly", "modern"],
+    },
+    googleFontsUrl:
+      "https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&family=Karla:wght@400;500;700&display=swap",
+  },
+
+  {
+    id: "forge-009",
+    name: "Old Money New Media",
+    description:
+      "EB Garamond convoque cinq siècles d'autorité typographique, Figtree l'ancre dans le présent avec vivacité. Le prestige qui ne se prend pas trop au sérieux.",
+    targetSectors: [
+      "cabinet d'avocats",
+      "patrimoine",
+      "family office",
+      "expertise comptable",
+    ],
+    mood: ["luxury", "classic", "editorial", "subtle", "timeless", "layered"],
+    fonts: {
+      display: {
+        family: "EB Garamond",
+        weights: [600, 800],
+        variable: "--font-display",
+      },
+      body: {
+        family: "Figtree",
+        weights: [400, 500, 600],
+        variable: "--font-body",
+      },
+      accent: {
+        family: "EB Garamond",
+        weights: [400, 600],
+        variable: "--font-accent",
+      },
+    },
+    pairing: {
+      contrast: "high",
+      style: "serif-sans",
+      mood: ["luxury", "classic", "editorial", "subtle", "timeless", "layered"],
+    },
+    googleFontsUrl:
+      "https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;800&family=Figtree:wght@400;500;600&display=swap",
+  },
+
+  {
+    id: "forge-010",
+    name: "Studio Vivant",
+    description:
+      "Syne déborde d'une personnalité créative affirmée, Work Sans tient le fond avec rigueur. Le duo des agences créatives qui livrent à l'heure.",
+    targetSectors: [
+      "agence créative",
+      "studio graphique",
+      "production vidéo",
+      "communication",
+    ],
+    mood: ["creative", "bold", "modern", "geometric", "energetic", "flat"],
     fonts: {
       display: {
         family: "Syne",
@@ -326,728 +347,402 @@ export const fontCombos: FontCombo[] = [
         variable: "--font-display",
       },
       body: {
-        family: "Nunito",
+        family: "Work Sans",
         weights: [400, 500, 600],
         variable: "--font-body",
       },
       accent: {
-        family: "Nunito",
-        weights: [700],
+        family: "Syne",
+        weights: [600, 800],
         variable: "--font-accent",
       },
     },
-
     pairing: {
       contrast: "medium",
       style: "sans-sans",
-      mood: ["energetic", "geometric", "modern", "bold", "friendly", "flat"],
+      mood: ["creative", "bold", "modern", "geometric", "energetic", "flat"],
     },
-
     googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Nunito:wght@400;500;600;700&display=swap",
+      "https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Work+Sans:wght@400;500;600&display=swap",
   },
 
   {
-    id: "forge-004",
-    name: "Terroir Robuste",
+    id: "forge-011",
+    name: "Monolith",
     description:
-      "Libre Baskerville impose une dignité de presse régionale, Source Sans 3 assure un confort de lecture long. Un pairing ancré, sincère, qui inspire confiance immédiatement.",
-    targetSectors: [
-      "restauration",
-      "producteurs locaux",
-      "vin & gastronomie",
-      "tourisme rural",
-    ],
-
-    mood: ["artisan", "classic", "calm", "organic", "textured", "friendly"],
-
+      "Barlow Condensed structure la hiérarchie avec une puissance industrielle, Barlow Regular assure la continuité dans le corps. Un univers cohérent, fort et maîtrisé.",
+    targetSectors: ["industrie", "BTP", "logistique", "énergie"],
+    mood: ["bold", "technical", "angular", "corporate", "energetic", "flat"],
     fonts: {
       display: {
-        family: "Libre Baskerville",
-        weights: [400, 700],
+        family: "Barlow Condensed",
+        weights: [700, 800],
         variable: "--font-display",
       },
       body: {
-        family: "Source Sans 3",
-        weights: [400, 600],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "Source Sans 3",
-        weights: [300, 400],
-        variable: "--font-accent",
-      },
-    },
-
-    pairing: {
-      contrast: "medium",
-      style: "serif-sans",
-      mood: ["artisan", "classic", "calm", "organic", "textured", "friendly"],
-    },
-
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap",
-  },
-
-  {
-    id: "forge-005",
-    name: "Precision Noire",
-    description:
-      "Space Grotesk tranche avec une géométrie technique et confiante, Literata offre un corps de texte optimisé pour l'écran avec une légère chaleur. Pour les experts qui ne veulent pas paraître froids.",
-    targetSectors: [
-      "ingénierie",
-      "cabinet architecture",
-      "conseil IT",
-      "santé premium",
-    ],
-
-    mood: [
-      "technical",
-      "geometric",
-      "modern",
-      "corporate",
-      "minimal",
-      "angular",
-    ],
-
-    fonts: {
-      display: {
-        family: "Space Grotesk",
-        weights: [500, 700],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Literata",
-        weights: [400, 500],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "Space Grotesk",
-        weights: [300, 400],
-        variable: "--font-accent",
-      },
-    },
-
-    pairing: {
-      contrast: "high",
-      style: "display-sans",
-      mood: [
-        "technical",
-        "geometric",
-        "modern",
-        "corporate",
-        "minimal",
-        "angular",
-      ],
-    },
-
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Literata:wght@400;500&display=swap",
-  },
-  {
-    id: "forge-001",
-    name: "Magistral",
-    description:
-      "Sérif classique en display, sans-serif neutre en corps. Alliance entre autorité éditoriale et lisibilité moderne. Idéal pour les marques qui veulent inspirer confiance sans paraître froides.",
-    targetSectors: ["conseil", "finance", "immobilier", "expertise-comptable"],
-
-    mood: ["luxury", "corporate", "editorial", "timeless"],
-
-    fonts: {
-      display: {
-        family: "Playfair Display",
-        weights: [400, 700, 900],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Inter",
+        family: "Barlow",
         weights: [400, 500, 600],
         variable: "--font-body",
       },
       accent: {
-        family: "Inter",
-        weights: [500, 700],
+        family: "Barlow Condensed",
+        weights: [600, 800],
         variable: "--font-accent",
       },
     },
-
     pairing: {
-      contrast: "high",
-      style: "serif-sans",
-      mood: ["luxury", "corporate", "editorial", "timeless"],
+      contrast: "medium",
+      style: "sans-sans",
+      mood: ["bold", "technical", "angular", "corporate", "energetic", "flat"],
     },
-
     googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap",
+      "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap",
   },
 
   {
-    id: "forge-002",
-    name: "Atelier Sud",
+    id: "forge-012",
+    name: "Quiet Confidence",
     description:
-      "Display manuscrit chaleureux couplé à un sans-serif humaniste aéré. Évoque le savoir-faire artisanal et la proximité. Pour les marques qui veulent de la chaleur sans perdre en crédibilité.",
+      "Spectral murmure avec une élégance discrète et des graisses subtiles, Plus Jakarta Sans complète sans jamais s'imposer. Pour les marques qui n'ont rien à prouver.",
     targetSectors: [
-      "restauration",
-      "artisanat",
-      "cosmétique-naturel",
-      "traiteur",
-      "décoration-intérieure",
+      "spa",
+      "hôtellerie boutique",
+      "centres de retraite",
+      "médecine esthétique",
     ],
-
-    mood: ["artisan", "friendly", "organic", "warm"],
-
+    mood: ["luxury", "calm", "subtle", "organic", "timeless", "minimal"],
     fonts: {
       display: {
-        family: "Cormorant Garamond",
-        weights: [300, 600, 700],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Nunito Sans",
-        weights: [400, 600],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "Dancing Script",
+        family: "Spectral",
         weights: [600, 700],
-        variable: "--font-accent",
-      },
-    },
-
-    pairing: {
-      contrast: "high",
-      style: "serif-sans",
-      mood: ["artisan", "friendly", "organic", "warm"],
-    },
-
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600;700&family=Nunito+Sans:wght@400;600&family=Dancing+Script:wght@600;700&display=swap",
-  },
-
-  {
-    id: "forge-003",
-    name: "Voltage",
-    description:
-      "Deux sans-serif géométriques à forte personnalité : un display condensé percutant, un corps sobre et fonctionnel. Énergie concentrée, impact immédiat. Pour les marques qui veulent dominer leur espace.",
-    targetSectors: [
-      "sport",
-      "tech-startup",
-      "agence-marketing",
-      "coaching",
-      "sécurité",
-    ],
-
-    mood: ["energetic", "bold", "geometric", "modern"],
-
-    fonts: {
-      display: {
-        family: "Barlow Condensed",
-        weights: [600, 700, 800],
         variable: "--font-display",
       },
       body: {
-        family: "DM Sans",
-        weights: [400, 500, 600],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "Barlow Condensed",
-        weights: [800],
-        variable: "--font-accent",
-      },
-    },
-
-    pairing: {
-      contrast: "medium",
-      style: "sans-sans",
-      mood: ["energetic", "bold", "geometric", "modern"],
-    },
-
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap",
-  },
-
-  {
-    id: "forge-004",
-    name: "Studio Blanc",
-    description:
-      "Display sérif élégant à empattements fins, corps sans-serif minimaliste. Espace blanc généreux suggéré par la typographie elle-même. Pour les marques qui font de l'épure un luxe.",
-    targetSectors: [
-      "architecture",
-      "photographie",
-      "mode",
-      "galerie-art",
-      "spa-luxe",
-    ],
-
-    mood: ["luxury", "minimal", "editorial", "clean"],
-
-    fonts: {
-      display: {
-        family: "Libre Baskerville",
-        weights: [400, 700],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Jost",
-        weights: [300, 400, 500],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "Jost",
-        weights: [300, 600],
-        variable: "--font-accent",
-      },
-    },
-
-    pairing: {
-      contrast: "high",
-      style: "serif-sans",
-      mood: ["luxury", "minimal", "editorial", "clean"],
-    },
-
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Jost:wght@300;400;500;600&display=swap",
-  },
-
-  {
-    id: "forge-005",
-    name: "Terrain Commun",
-    description:
-      "Sérif slab solide en display, sans-serif humaniste chaleureux en corps. Ancrage, robustesse, accessibilité. Pour les TPE qui veulent paraître établies et de confiance sans être distantes.",
-    targetSectors: [
-      "BTP",
-      "transport",
-      "santé-libérale",
-      "juridique-proximité",
-      "formation",
-    ],
-
-    mood: ["corporate", "friendly", "bold", "timeless"],
-
-    fonts: {
-      display: {
-        family: "Zilla Slab",
-        weights: [400, 600, 700],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Source Sans 3",
-        weights: [400, 600],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "Zilla Slab",
-        weights: [600],
-        variable: "--font-accent",
-      },
-    },
-
-    pairing: {
-      contrast: "medium",
-      style: "serif-sans",
-      mood: ["corporate", "friendly", "bold", "timeless"],
-    },
-
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap",
-  },
-  {
-    id: "forge-001",
-    name: "Sovereign",
-    description:
-      "Sérif monumental en display, sans-serif neutre en corps. Alliance du prestige classique et de la clarté moderne.",
-    targetSectors: ["conseil", "finance", "immobilier", "luxe"],
-
-    mood: ["luxury", "timeless", "editorial", "clean"],
-
-    fonts: {
-      display: {
-        family: "Playfair Display",
-        weights: [400, 700, 900],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Inter",
-        weights: [400, 500, 600],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "Inter",
-        weights: [300, 400],
-        variable: "--font-accent",
-      },
-    },
-
-    pairing: {
-      contrast: "high",
-      style: "serif-sans",
-      mood: ["luxury", "timeless", "editorial", "clean"],
-    },
-
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap",
-  },
-
-  {
-    id: "forge-002",
-    name: "Atelier",
-    description:
-      "Display expressif aux contrastes marqués, corps humaniste chaleureux. Idéal pour les métiers manuels et créatifs qui veulent du caractère.",
-    targetSectors: [
-      "artisanat",
-      "décoration",
-      "gastronomie",
-      "architecture d'intérieur",
-    ],
-
-    mood: ["artisan", "organic", "timeless", "decorated"],
-
-    fonts: {
-      display: {
-        family: "Cormorant Garamond",
-        weights: [300, 600, 700],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Source Sans 3",
-        weights: [400, 600],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "Cormorant Garamond",
-        weights: [300, 400],
-        variable: "--font-accent",
-      },
-    },
-
-    pairing: {
-      contrast: "high",
-      style: "serif-sans",
-      mood: ["artisan", "organic", "timeless", "decorated"],
-    },
-
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600;700&family=Source+Sans+3:wght@400;600&display=swap",
-  },
-
-  {
-    id: "forge-003",
-    name: "Circuit",
-    description:
-      "Duo 100% géométrique à deux graisses. La rigueur du monde tech sans la froideur. Corps mono en accent pour les données et snippets.",
-    targetSectors: ["tech", "SaaS", "cabinet IT", "ingénierie"],
-
-    mood: ["technical", "geometric", "modern", "minimal"],
-
-    fonts: {
-      display: {
-        family: "DM Sans",
-        weights: [500, 700],
-        variable: "--font-display",
-      },
-      body: {
-        family: "DM Sans",
+        family: "Plus Jakarta Sans",
         weights: [400, 500],
         variable: "--font-body",
       },
+      accent: {
+        family: "Spectral",
+        weights: [400, 600],
+        variable: "--font-accent",
+      },
+    },
+    pairing: {
+      contrast: "high",
+      style: "serif-sans",
+      mood: ["luxury", "calm", "subtle", "organic", "timeless", "minimal"],
+    },
+    googleFontsUrl:
+      "https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500&display=swap",
+  },
+
+  {
+    id: "forge-013",
+    name: "Hacker Friendly",
+    description:
+      "Fira Code installe immédiatement le registre technique, Fira Sans assure la transition vers la prose sans rupture d'univers. Pour les produits qui parlent aux développeurs.",
+    targetSectors: [
+      "DevTools",
+      "API-first",
+      "infra cloud",
+      "open source commercialisé",
+    ],
+    mood: ["technical", "creative", "minimal", "flat", "modern", "bare"],
+    fonts: {
+      display: {
+        family: "Fira Code",
+        weights: [600, 700],
+        variable: "--font-display",
+      },
+      body: {
+        family: "Fira Sans",
+        weights: [400, 500],
+        variable: "--font-body",
+      },
+      accent: {
+        family: "Fira Code",
+        weights: [400, 700],
+        variable: "--font-accent",
+      },
+    },
+    pairing: {
+      contrast: "medium",
+      style: "mono-accent",
+      mood: ["technical", "creative", "minimal", "flat", "modern", "bare"],
+    },
+    googleFontsUrl:
+      "https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Fira+Sans:wght@400;500&display=swap",
+  },
+
+  {
+    id: "forge-014",
+    name: "Warm Commerce",
+    description:
+      "Raleway apporte une touche de raffinement accessible, Open Sans tisse le filet de sécurité de la lisibilité universelle. Le duo e-commerce qui convertit et fidélise.",
+    targetSectors: [
+      "e-commerce",
+      "retail",
+      "marketplace",
+      "abonnement consommateur",
+    ],
+    mood: ["friendly", "modern", "clean", "flat", "calm", "corporate"],
+    fonts: {
+      display: {
+        family: "Raleway",
+        weights: [700, 800],
+        variable: "--font-display",
+      },
+      body: {
+        family: "Open Sans",
+        weights: [400, 600],
+        variable: "--font-body",
+      },
+      accent: {
+        family: "Raleway",
+        weights: [500, 700],
+        variable: "--font-accent",
+      },
+    },
+    pairing: {
+      contrast: "medium",
+      style: "sans-sans",
+      mood: ["friendly", "modern", "clean", "flat", "calm", "corporate"],
+    },
+    googleFontsUrl:
+      "https://fonts.googleapis.com/css2?family=Raleway:wght@500;700;800&family=Open+Sans:wght@400;600&display=swap",
+  },
+
+  {
+    id: "forge-015",
+    name: "Atelier Couture",
+    description:
+      "Bodoni Moda déploie ses contrastes de pleins et de déliés avec une grâce absolue, Mulish accompagne sans jamais voler la vedette. Haute couture typographique.",
+    targetSectors: [
+      "joaillerie",
+      "horlogerie",
+      "maison de couture",
+      "art de la table",
+    ],
+    mood: ["luxury", "editorial", "ornate", "classic", "bold", "timeless"],
+    fonts: {
+      display: {
+        family: "Bodoni Moda",
+        weights: [700, 900],
+        variable: "--font-display",
+      },
+      body: {
+        family: "Mulish",
+        weights: [300, 400, 600],
+        variable: "--font-body",
+      },
+      accent: {
+        family: "Bodoni Moda",
+        weights: [400, 700],
+        variable: "--font-accent",
+      },
+    },
+    pairing: {
+      contrast: "high",
+      style: "serif-sans",
+      mood: ["luxury", "editorial", "ornate", "classic", "bold", "timeless"],
+    },
+    googleFontsUrl:
+      "https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,700;6..96,900&family=Mulish:wght@300;400;600&display=swap",
+  },
+
+  {
+    id: "forge-016",
+    name: "Civic Trust",
+    description:
+      "Merriweather impose sa solidité de roc, Roboto tient le pavé numérique depuis quinze ans. Un duo institutionnel qui rassure sans endormir.",
+    targetSectors: [
+      "collectivité",
+      "association loi 1901",
+      "mutuelle",
+      "assurance",
+    ],
+    mood: ["corporate", "classic", "calm", "angular", "clean", "timeless"],
+    fonts: {
+      display: {
+        family: "Merriweather",
+        weights: [700, 900],
+        variable: "--font-display",
+      },
+      body: {
+        family: "Roboto",
+        weights: [400, 500, 700],
+        variable: "--font-body",
+      },
+      accent: {
+        family: "Roboto",
+        weights: [500, 700],
+        variable: "--font-accent",
+      },
+    },
+    pairing: {
+      contrast: "high",
+      style: "serif-sans",
+      mood: ["corporate", "classic", "calm", "angular", "clean", "timeless"],
+    },
+    googleFontsUrl:
+      "https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Roboto:wght@400;500;700&display=swap",
+  },
+
+  {
+    id: "forge-017",
+    name: "Forest Digital",
+    description:
+      "Unbounded impose ses formes carrées et futuristes, DM Mono assure en mode terminal épuré. Pour les marques tech qui ont une conscience environnementale.",
+    targetSectors: [
+      "greentech",
+      "cleantech",
+      "mobilité durable",
+      "financement vert",
+    ],
+    mood: ["technical", "bold", "geometric", "angular", "modern", "energetic"],
+    fonts: {
+      display: {
+        family: "Unbounded",
+        weights: [700, 900],
+        variable: "--font-display",
+      },
+      body: { family: "DM Sans", weights: [400, 500], variable: "--font-body" },
       accent: {
         family: "DM Mono",
         weights: [400, 500],
         variable: "--font-accent",
       },
     },
+    pairing: {
+      contrast: "high",
+      style: "display-sans",
+      mood: [
+        "technical",
+        "bold",
+        "geometric",
+        "angular",
+        "modern",
+        "energetic",
+      ],
+    },
+    googleFontsUrl:
+      "https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&display=swap",
+  },
 
+  {
+    id: "forge-018",
+    name: "Serif Harmony",
+    description:
+      "Gilda Display pose une noblesse italienne intemporelle, Crimson Pro file une prose élégante aux corps de texte. Quand le tout-serif est une déclaration d'intention.",
+    targetSectors: [
+      "éditeur littéraire",
+      "académie",
+      "fondation culturelle",
+      "musée",
+    ],
+    mood: ["classic", "luxury", "editorial", "decorated", "calm", "timeless"],
+    fonts: {
+      display: {
+        family: "Gilda Display",
+        weights: [400],
+        variable: "--font-display",
+      },
+      body: {
+        family: "Crimson Pro",
+        weights: [400, 600],
+        variable: "--font-body",
+      },
+      accent: {
+        family: "Crimson Pro",
+        weights: [400, 600],
+        variable: "--font-accent",
+      },
+    },
     pairing: {
       contrast: "low",
-      style: "mono-accent",
-      mood: ["technical", "geometric", "modern", "minimal"],
+      style: "serif-serif",
+      mood: ["classic", "luxury", "editorial", "decorated", "calm", "timeless"],
     },
-
     googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap",
+      "https://fonts.googleapis.com/css2?family=Gilda+Display&family=Crimson+Pro:wght@400;600&display=swap",
   },
 
   {
-    id: "forge-004",
-    name: "Meridian",
+    id: "forge-019",
+    name: "Kinetic Santé",
     description:
-      "Slab sérif affirmé en display, grotesque sobre en corps. Le combo des marques qui veulent inspirer la confiance sans paraître rigides.",
-    targetSectors: ["BTP", "logistique", "industrie", "services B2B"],
-
-    mood: ["corporate", "bold", "angular", "flat"],
-
+      "Lexend Deca est conçu scientifiquement pour réduire la fatigue de lecture, Poppins apporte sa rondeur optimiste en accent. Accessibilité et bienveillance comme fondamentaux.",
+    targetSectors: ["paramédical", "orthophonie", "handicap", "pédiatrie"],
+    mood: ["friendly", "calm", "curved", "clean", "minimal", "modern"],
     fonts: {
       display: {
-        family: "Zilla Slab",
-        weights: [500, 700],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Nunito Sans",
-        weights: [400, 600],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "Nunito Sans",
-        weights: [300, 400],
-        variable: "--font-accent",
-      },
-    },
-
-    pairing: {
-      contrast: "medium",
-      style: "serif-sans",
-      mood: ["corporate", "bold", "angular", "flat"],
-    },
-
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Nunito+Sans:wght@300;400;600&display=swap",
-  },
-
-  {
-    id: "forge-005",
-    name: "Véloce",
-    description:
-      "Display condensé dynamique, corps arrondi accessible. Énergie et proximité — pour les marques qui bougent vite et parlent humain.",
-    targetSectors: ["sport", "coaching", "formation", "événementiel"],
-
-    mood: ["energetic", "friendly", "curved", "bold"],
-
-    fonts: {
-      display: {
-        family: "Barlow Condensed",
-        weights: [600, 700, 800],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Nunito",
-        weights: [400, 600, 700],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "Barlow Condensed",
-        weights: [400, 500],
-        variable: "--font-accent",
-      },
-    },
-
-    pairing: {
-      contrast: "medium",
-      style: "display-sans",
-      mood: ["energetic", "friendly", "curved", "bold"],
-    },
-
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Nunito:wght@400;600;700&display=swap",
-  },
-  {
-    id: "forge-001",
-    name: "Cabinet & Craft",
-    description:
-      "Slab serif autoritaire pour les titres, humaniste neutre pour le corps. Évoque le savoir-faire haut de gamme et la confiance immédiate.",
-    targetSectors: [
-      "menuiserie",
-      "architecture intérieure",
-      "conseil",
-      "artisanat premium",
-    ],
-
-    mood: ["bold", "artisan", "organic", "timeless"],
-
-    fonts: {
-      display: {
-        family: "Zilla Slab",
-        weights: [500, 600, 700],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Source Sans 3",
-        weights: [400, 500, 600],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "Source Sans 3",
-        weights: [400, 600],
-        variable: "--font-accent",
-      },
-    },
-
-    pairing: {
-      contrast: "high",
-      style: "serif-sans",
-      mood: ["bold", "artisan", "organic", "timeless"],
-    },
-
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap",
-  },
-
-  {
-    id: "forge-002",
-    name: "Prestige Editorial",
-    description:
-      "Didone contemporain pour les titres, Grotesk étroit pour le corps. Rigueur de la presse magazine haut de gamme transposée au web TPE.",
-    targetSectors: [
-      "agence immobilière",
-      "cabinet juridique",
-      "luxe accessible",
-      "conseil en image",
-    ],
-
-    mood: ["luxury", "editorial", "minimal", "modern"],
-
-    fonts: {
-      display: {
-        family: "Playfair Display",
-        weights: [600, 700, 800],
-        variable: "--font-display",
-      },
-      body: {
-        family: "DM Sans",
-        weights: [400, 500, 600],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "DM Sans",
-        weights: [300, 500],
-        variable: "--font-accent",
-      },
-    },
-
-    pairing: {
-      contrast: "high",
-      style: "serif-sans",
-      mood: ["luxury", "editorial", "minimal", "modern"],
-    },
-
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap",
-  },
-
-  {
-    id: "forge-003",
-    name: "Studio Géométrique",
-    description:
-      "Geometric sans en display avec une forte personnalité de forme, paired avec un humaniste chaud. Tension productive entre froid et accessible.",
-    targetSectors: [
-      "agence digitale",
-      "studio photo",
-      "startup B2B",
-      "formation professionnelle",
-    ],
-
-    mood: ["energetic", "geometric", "corporate", "flat"],
-
-    fonts: {
-      display: {
-        family: "Syne",
-        weights: [600, 700, 800],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Nunito Sans",
-        weights: [400, 500, 600],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "Nunito Sans",
+        family: "Lexend Deca",
         weights: [600, 700],
-        variable: "--font-accent",
-      },
-    },
-
-    pairing: {
-      contrast: "medium",
-      style: "sans-sans",
-      mood: ["energetic", "geometric", "corporate", "flat"],
-    },
-
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Nunito+Sans:wght@400;500;600;700&display=swap",
-  },
-
-  {
-    id: "forge-004",
-    name: "Terroir & Confiance",
-    description:
-      "Serif doux à empattements arrondis pour les titres, sans-serif neutre et chaleureux pour le corps. Sérieux sans distance, local sans folklorisme.",
-    targetSectors: [
-      "agriculture raisonnée",
-      "épicerie fine",
-      "restauration",
-      "tourisme local",
-    ],
-
-    mood: ["calm", "artisan", "curved", "friendly"],
-
-    fonts: {
-      display: {
-        family: "Lora",
-        weights: [500, 600, 700],
         variable: "--font-display",
       },
       body: {
-        family: "Mulish",
-        weights: [400, 500, 600],
+        family: "Lexend Deca",
+        weights: [400, 500],
         variable: "--font-body",
       },
       accent: {
-        family: "Mulish",
+        family: "Poppins",
+        weights: [500, 700],
+        variable: "--font-accent",
+      },
+    },
+    pairing: {
+      contrast: "low",
+      style: "sans-sans",
+      mood: ["friendly", "calm", "curved", "clean", "minimal", "modern"],
+    },
+    googleFontsUrl:
+      "https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;500;600;700&family=Poppins:wght@500;700&display=swap",
+  },
+
+  {
+    id: "forge-020",
+    name: "Terroir & Expertise",
+    description:
+      "Playfair Display SC cisèle les petites capitales avec une prestance de domaine viticole, Quattrocento Sans ancre le contenu dans une lisibilité méditerranéenne et chaleureuse.",
+    targetSectors: [
+      "viticulture",
+      "oenotourisme",
+      "gastronomie régionale",
+      "terroir premium",
+    ],
+    mood: ["artisan", "classic", "organic", "decorated", "subtle", "timeless"],
+    fonts: {
+      display: {
+        family: "Playfair Display SC",
+        weights: [700],
+        variable: "--font-display",
+      },
+      body: {
+        family: "Quattrocento Sans",
+        weights: [400, 700],
+        variable: "--font-body",
+      },
+      accent: {
+        family: "Playfair Display SC",
         weights: [400, 700],
         variable: "--font-accent",
       },
     },
-
-    pairing: {
-      contrast: "medium",
-      style: "serif-sans",
-      mood: ["calm", "artisan", "curved", "friendly"],
-    },
-
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Mulish:wght@400;500;600;700&display=swap",
-  },
-
-  {
-    id: "forge-005",
-    name: "Signal Technique",
-    description:
-      "Display condensé à fort impact pour les titres, monospace élégant en accent, sans-serif propre pour le corps. Clarté d'ingénieur, lisibilité maximale.",
-    targetSectors: [
-      "bureau d'études",
-      "électricien",
-      "maintenance industrielle",
-      "ESN PME",
-    ],
-
-    mood: ["technical", "angular", "bold", "clean"],
-
-    fonts: {
-      display: {
-        family: "Barlow Condensed",
-        weights: [600, 700, 800],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Inter",
-        weights: [400, 500, 600],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "JetBrains Mono",
-        weights: [400, 500],
-        variable: "--font-accent",
-      },
-    },
-
     pairing: {
       contrast: "high",
-      style: "display-sans",
-      mood: ["technical", "angular", "bold", "clean"],
+      style: "serif-sans",
+      mood: [
+        "artisan",
+        "classic",
+        "organic",
+        "decorated",
+        "subtle",
+        "timeless",
+      ],
     },
-
     googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+      "https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700&family=Quattrocento+Sans:wght@400;700&display=swap",
   },
 ];
