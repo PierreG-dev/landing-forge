@@ -144,7 +144,7 @@ function V3(props: BlockProps) {
       </div>
 
       {/* Alternating panels */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
         {services.map((name, i) => {
           const isPrimary = i === 1
           return (

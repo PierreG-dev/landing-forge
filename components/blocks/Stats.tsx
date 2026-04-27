@@ -33,7 +33,7 @@ function V1(props: BlockProps) {
       {/* Decorative blob */}
       <div style={{ position: 'absolute', right: '-8rem', top: '-8rem', width: '30rem', height: '30rem', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', pointerEvents: 'none' }} />
 
-      <div style={{ position: 'relative', zIndex: 1, maxWidth: '72rem', margin: '0 auto', display: 'grid', gridTemplateColumns: `repeat(${displayStats.length}, 1fr)`, gap: '2rem' }}>
+      <div style={{ position: 'relative', zIndex: 1, maxWidth: '72rem', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '2rem' }}>
         {displayStats.map((stat, i) => (
           <div key={i} style={{ textAlign: 'center', padding: '1rem' }}>
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, color: 'white', lineHeight: 1, marginBottom: '0.5rem', letterSpacing: '-0.02em' }}>
@@ -59,7 +59,7 @@ function V2(props: BlockProps) {
 
   return (
     <section style={{ position: 'relative', backgroundColor: 'var(--color-surface)', padding: `${py} 2rem`, overflow: 'hidden' }}>
-      <div style={{ maxWidth: '64rem', margin: '0 auto', display: 'grid', gridTemplateColumns: `repeat(${displayStats.length}, 1fr)`, gap: 0, position: 'relative' }}>
+      <div style={{ maxWidth: '64rem', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 0, position: 'relative' }}>
         {displayStats.map((stat, i) => (
           <div key={i} style={{ textAlign: 'center', padding: '2rem 1.5rem', position: 'relative' }}>
             {/* Vertical divider */}
@@ -97,7 +97,7 @@ function V3(props: BlockProps) {
         {displayStats[0]?.value}
       </div>
 
-      <div style={{ position: 'relative', zIndex: 1, maxWidth: '72rem', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0' }}>
+      <div style={{ position: 'relative', zIndex: 1, maxWidth: '72rem', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 22rem), 1fr))', gap: '0' }}>
         {displayStats.map((stat, i) => (
           <div key={i} style={{ padding: '3rem 4rem', borderRight: i === 0 ? '1px solid rgba(0,0,0,0.08)' : 'none' }}>
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(4rem, 10vw, 8rem)', fontWeight: 900, color: 'var(--color-primary)', lineHeight: 0.9, marginBottom: '1.25rem', letterSpacing: '-0.04em' }}>
@@ -128,7 +128,7 @@ function V4(props: BlockProps) {
       {/* Decorative circle */}
       <div style={{ position: 'absolute', bottom: '-6rem', left: '-6rem', width: '24rem', height: '24rem', borderRadius: '50%', background: 'var(--color-primary)', opacity: 0.04, pointerEvents: 'none' }} />
 
-      <div style={{ maxWidth: '56rem', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
+      <div style={{ maxWidth: '56rem', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 22rem), 1fr))', gap: '1.5rem' }}>
         {displayStats.map((stat, i) => (
           <div key={i} style={{ backgroundColor: 'white', borderRadius: radius, padding: '2rem', boxShadow: shadow, border: '1px solid rgba(0,0,0,0.05)', display: 'flex', alignItems: 'flex-start', gap: '1.25rem' }}>
             <div style={{ flex: '0 0 auto', width: '3rem', height: '3rem', borderRadius: '0.5rem', background: `linear-gradient(135deg, var(--color-primary), var(--color-secondary))`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

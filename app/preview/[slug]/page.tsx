@@ -19,10 +19,13 @@ export default async function PreviewPage({
   const record = await prisma.landing.findUnique({ where: { slug } })
   if (!record) notFound()
 
-  await prisma.landing.update({
-    where: { slug },
-    data: { views: { increment: 1 } },
-  })
+  await prisma.$transaction([
+    prisma.landing.update({
+      where: { slug },
+      data: { views: { increment: 1 } },
+    }),
+    prisma.visit.create({ data: { landingId: record.id } }),
+  ])
 
   const theme = themes.find((t) => t.id === record.themeId)
   const colors = colorCombos.find((c) => c.id === record.colorComboId)

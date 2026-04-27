@@ -30,4 +30,12 @@ model Landing {
   blocks       String
   views        Int      @default(0)
   savedVia     String
+  visits       Visit[]
+}
+
+model Visit {
+  id        String   @id @default(cuid())
+  landingId String
+  visitedAt DateTime @default(now())
+  landing   Landing  @relation(fields: [landingId], references: [id], onDelete: Cascade)
 }

@@ -202,7 +202,7 @@ function V4(props: BlockProps) {
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 26rem), 1fr))', gap: '1rem' }}>
           {items.map((t, i) => (
             <div key={i} style={{ display: 'flex', gap: '0', borderRadius: radius, overflow: 'hidden', boxShadow: shadow, backgroundColor: 'white' }}>
               {/* Lateral color bar */}

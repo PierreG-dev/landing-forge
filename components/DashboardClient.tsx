@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Copy, ExternalLink, RefreshCw, Trash2, Plus, Zap, Eye } from 'lucide-react'
+import { Copy, ExternalLink, RefreshCw, Trash2, Plus, Zap, Eye, BarChart2 } from 'lucide-react'
 
 type LandingRow = {
   id: string
@@ -146,6 +146,13 @@ export default function DashboardClient({ landings, sectorMap }: Props) {
                       <td className="text-sm font-mono tabular-nums">{landing.views}</td>
                       <td>
                         <div className="flex items-center justify-end gap-1">
+                          <a
+                            href={`/landing/${landing.slug}`}
+                            className="btn btn-ghost btn-xs"
+                            title="Voir les statistiques"
+                          >
+                            <BarChart2 className="w-3.5 h-3.5" />
+                          </a>
                           <button
                             onClick={() => handleCopy(landing.slug)}
                             className="btn btn-ghost btn-xs"

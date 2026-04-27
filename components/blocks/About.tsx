@@ -18,7 +18,7 @@ function V1(props: BlockProps) {
 
   return (
     <section style={{ position: 'relative', backgroundColor: 'var(--color-surface)', padding: `${py} 2rem`, overflow: 'hidden' }}>
-      <div style={{ maxWidth: '72rem', margin: '0 auto', display: 'grid', gridTemplateColumns: '55fr 45fr', gap: '4rem', alignItems: 'center' }}>
+      <div style={{ maxWidth: '72rem', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 28rem), 1fr))', gap: '4rem', alignItems: 'center' }}>
         {/* Text */}
         <div style={{ position: 'relative', zIndex: 1 }}>
           <p style={{ fontFamily: 'var(--font-accent)', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-primary)', marginBottom: '0.75rem' }}>
@@ -155,7 +155,7 @@ function V3(props: BlockProps) {
         </div>
 
         {/* Timeline */}
-        <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+        <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2rem' }}>
           {/* Connecting line */}
           <div style={{ position: 'absolute', top: '1.75rem', left: '16.66%', right: '16.66%', height: '2px', background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))', zIndex: 0 }} />
 

@@ -1,0 +1,7 @@
+-- CreateTable
+CREATE TABLE "Visit" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "landingId" TEXT NOT NULL,
+    "visitedAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "Visit_landingId_fkey" FOREIGN KEY ("landingId") REFERENCES "Landing" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+);

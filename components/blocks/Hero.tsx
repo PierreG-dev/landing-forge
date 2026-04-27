@@ -50,7 +50,7 @@ function V1(props: BlockProps) {
       <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 3, background: 'linear-gradient(to bottom, var(--color-primary), var(--color-secondary))' }} />
 
       {/* Header strip */}
-      <header style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1.75rem 3rem 1.75rem 4rem', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+      <header style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: 'clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 4vw, 3rem) clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 5vw, 4rem)', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
         {prospect.logoUrl
           ? <img src={prospect.logoUrl} alt={prospect.company} style={{ height: '2.25rem', filter: 'brightness(0) invert(1)', opacity: 0.9 }} />
           : <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, color: 'var(--color-surface)', letterSpacing: '-0.02em' }}>{prospect.company}</span>
@@ -63,7 +63,7 @@ function V1(props: BlockProps) {
       </header>
 
       {/* Main content */}
-      <main style={{ position: 'relative', zIndex: 2, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '4rem 4rem 4rem 4.5rem', maxWidth: '80rem' }}>
+      <main style={{ position: 'relative', zIndex: 2, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 'clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem) clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 6vw, 4.5rem)', maxWidth: '80rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2.25rem' }}>
           <div style={{ width: '1.75rem', height: '1px', background: 'var(--color-primary)' }} />
           <p style={{ fontFamily: 'var(--font-accent)', fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase' as const, color: 'var(--color-primary)', fontWeight: 600, margin: 0 }}>
@@ -91,7 +91,7 @@ function V1(props: BlockProps) {
       </main>
 
       {/* Credential footer */}
-      <footer style={{ position: 'relative', zIndex: 2, borderTop: '1px solid rgba(255,255,255,0.06)', padding: '1.25rem 3rem 1.25rem 4.5rem', display: 'flex', alignItems: 'center', gap: '2.5rem', flexWrap: 'wrap' as const }}>
+      <footer style={{ position: 'relative', zIndex: 2, borderTop: '1px solid rgba(255,255,255,0.06)', padding: 'clamp(1rem, 2vw, 1.25rem) clamp(1.25rem, 4vw, 3rem) clamp(1rem, 2vw, 1.25rem) clamp(1.25rem, 6vw, 4.5rem)', display: 'flex', alignItems: 'center', gap: '2.5rem', flexWrap: 'wrap' as const }}>
         {prospect.phone && <span style={{ fontFamily: 'var(--font-accent)', fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,0.28)' }}>{prospect.phone}</span>}
         {prospect.email && <span style={{ fontFamily: 'var(--font-accent)', fontSize: '0.68rem', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.22)' }}>{prospect.email}</span>}
         <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '1rem' }}>
@@ -192,7 +192,18 @@ function V3(props: BlockProps) {
   const heroImage = sector.images?.hero?.[0]
 
   return (
-    <section style={{ position: 'relative', minHeight: '85vh', display: 'grid', gridTemplateColumns: '55fr 45fr', overflow: 'hidden', backgroundColor: 'var(--color-surface)' }}>
+    <>
+      <style>{`
+        .hero-v3-section { display: grid; grid-template-columns: 55fr 45fr; }
+        .hero-v3-right { clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%); }
+        .hero-v3-card { left: 55%; }
+        @media (max-width: 768px) {
+          .hero-v3-section { grid-template-columns: 1fr; }
+          .hero-v3-right { display: none; }
+          .hero-v3-card { display: none; }
+        }
+      `}</style>
+    <section className="hero-v3-section" style={{ position: 'relative', minHeight: '85vh', overflow: 'hidden', backgroundColor: 'var(--color-surface)' }}>
 
       {/* Left content panel */}
       <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '4rem clamp(2rem, 5vw, 5rem) 4rem clamp(2rem, 6vw, 6rem)' }}>
@@ -237,7 +248,7 @@ function V3(props: BlockProps) {
       </div>
 
       {/* Right color panel — diagonal cut on left edge */}
-      <div style={{ position: 'relative', clipPath: 'polygon(10% 0, 100% 0, 100% 100%, 0% 100%)', overflow: 'hidden', background: 'linear-gradient(160deg, var(--color-primary) 0%, var(--color-secondary) 100%)' }}>
+      <div className="hero-v3-right" style={{ position: 'relative', overflow: 'hidden', background: 'linear-gradient(160deg, var(--color-primary) 0%, var(--color-secondary) 100%)' }}>
         {heroImage && (
           <>
             <img src={heroImage} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -263,7 +274,7 @@ function V3(props: BlockProps) {
       </div>
 
       {/* Floating credential card — straddles the diagonal */}
-      <div style={{ position: 'absolute', zIndex: 10, left: '55%', top: '50%', transform: 'translate(-50%, -50%)', background: 'var(--color-surface)', borderRadius: radius, padding: '1.5rem 2rem', boxShadow: '0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.1)', border: '1px solid rgba(0,0,0,0.06)', textAlign: 'center' as const, minWidth: '9rem' }}>
+      <div className="hero-v3-card" style={{ position: 'absolute', zIndex: 10, top: '50%', transform: 'translate(-50%, -50%)', background: 'var(--color-surface)', borderRadius: radius, padding: '1.5rem 2rem', boxShadow: '0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.1)', border: '1px solid rgba(0,0,0,0.06)', textAlign: 'center' as const, minWidth: '9rem' }}>
         <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', fontWeight: 900, color: 'var(--color-primary)', lineHeight: 1, marginBottom: '0.5rem', letterSpacing: '-0.04em' }}>
           {prospect.company.slice(0, 2).toUpperCase()}
         </div>
@@ -272,6 +283,7 @@ function V3(props: BlockProps) {
 
       <Separator style={theme.separators.style} fill="var(--color-surface)" />
     </section>
+    </>
   )
 }
 
@@ -379,6 +391,12 @@ function V5(props: BlockProps) {
   const nameSecondLine = nameParts.slice(mid).join(' ')
 
   return (
+    <>
+      <style>{`
+        @media (max-width: 640px) {
+          .hero-v5-sidebar { display: none !important; }
+        }
+      `}</style>
     <section style={{ position: 'relative', minHeight: '90vh', display: 'flex', overflow: 'hidden', backgroundColor: 'var(--color-surface)' }}>
 
       {/* Main content area */}
@@ -440,7 +458,7 @@ function V5(props: BlockProps) {
       </div>
 
       {/* Right sidebar column */}
-      <div style={{ width: '10rem', flexShrink: 0, position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '2.5rem 0', background: 'var(--color-primary)' }}>
+      <div className="hero-v5-sidebar" style={{ width: '10rem', flexShrink: 0, position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '2.5rem 0', background: 'var(--color-primary)' }}>
         <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 900, color: 'rgba(255,255,255,0.55)', letterSpacing: '-0.03em' }}>
           {prospect.company.slice(0, 2).toUpperCase()}
         </div>
@@ -460,6 +478,7 @@ function V5(props: BlockProps) {
 
       <Separator style={theme.separators.style} fill="var(--color-surface)" />
     </section>
+    </>
   )
 }
 

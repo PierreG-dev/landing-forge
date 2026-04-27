@@ -2,6 +2,7 @@ import { Phone, Mail, ArrowRight } from './icons'
 import { substitute } from '@/lib/engine/substitutor'
 import type { BlockProps } from './types'
 import { safeGet, getShadowCSS, getBorderRadius, getSectionPadding } from './utils'
+import { ContactForm } from './ContactForm'
 
 const FALLBACK_TAGLINE = 'Prêt à démarrer votre projet avec {{company}} ?'
 const FALLBACK_DESC = 'Contactez-nous dès aujourd\'hui pour un devis gratuit à {{city}}.'
@@ -96,7 +97,7 @@ function V2(props: BlockProps) {
   )
 }
 
-// ── Variant 3: 2-col — text left, simulated form right ───────────────────────
+// ── Variant 3: 2-col — text left, contact form right ─────────────────────────
 
 function V3(props: BlockProps) {
   const { prospect, sector, theme, corpusIndex } = props
@@ -105,24 +106,11 @@ function V3(props: BlockProps) {
   const shadow = getShadowCSS(theme)
   const py = getSectionPadding(theme)
 
-  const inputStyle: React.CSSProperties = {
-    width: '100%',
-    padding: '0.875rem 1rem',
-    borderRadius: radius,
-    border: '1.5px solid rgba(0,0,0,0.12)',
-    fontFamily: 'var(--font-body)',
-    fontSize: '0.9375rem',
-    color: 'var(--color-text)',
-    backgroundColor: 'white',
-    outline: 'none',
-    boxSizing: 'border-box',
-  }
-
   return (
     <section id="contact" style={{ position: 'relative', backgroundColor: 'var(--color-surface)', padding: `${py} 2rem`, overflow: 'hidden' }}>
       <div style={{ position: 'absolute', top: '-10rem', right: '-10rem', width: '30rem', height: '30rem', borderRadius: '50%', background: 'var(--color-primary)', opacity: 0.05, pointerEvents: 'none' }} />
 
-      <div style={{ maxWidth: '72rem', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+      <div style={{ maxWidth: '72rem', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 26rem), 1fr))', gap: '4rem', alignItems: 'center' }}>
         {/* Left: text */}
         <div>
           <p style={{ fontFamily: 'var(--font-accent)', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-primary)', marginBottom: '0.75rem' }}>
@@ -148,26 +136,12 @@ function V3(props: BlockProps) {
           </div>
         </div>
 
-        {/* Right: simulated form */}
+        {/* Right: contact form */}
         <div style={{ backgroundColor: 'white', borderRadius: radius, padding: '2.5rem', boxShadow: shadow, border: '1px solid rgba(0,0,0,0.06)' }}>
           <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 700, color: 'var(--color-text)', marginBottom: '1.5rem' }}>
             Envoyer un message
           </h3>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.875rem' }}>
-              <input type="text" placeholder="Prénom" readOnly style={inputStyle} />
-              <input type="text" placeholder="Nom" readOnly style={inputStyle} />
-            </div>
-            <input type="email" placeholder="Email" readOnly style={inputStyle} />
-            <input type="tel" placeholder="Téléphone" readOnly style={inputStyle} />
-            <textarea placeholder="Votre message…" readOnly rows={4} style={{ ...inputStyle, resize: 'none' }} />
-            <button type="button" style={{ padding: '1rem 1.5rem', backgroundColor: 'var(--color-primary)', color: 'white', border: 'none', borderRadius: radius, fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: '1rem', cursor: 'pointer', boxShadow: shadow }}>
-              Envoyer le message
-            </button>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem', color: 'var(--color-text-light)', textAlign: 'center', lineHeight: 1.5 }}>
-              * Formulaire de démonstration — contactez {prospect.company} directement.
-            </p>
-          </div>
+          <ContactForm email={prospect.email} radius={radius} shadow={shadow} />
         </div>
       </div>
     </section>
