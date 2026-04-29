@@ -1,13 +1,12 @@
-import { cookies } from 'next/headers'
 import type { NextRequest } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { isAuthorized } from '@/lib/auth'
 
 export async function DELETE(
-  _request: NextRequest,
+  request: NextRequest,
   { params }: { params: Promise<{ slug: string }> }
 ) {
-  const cookieStore = await cookies()
-  if (cookieStore.get('landingforge_auth')?.value !== 'true') {
+  if (!await isAuthorized(request)) {
     return Response.json({ error: 'Unauthorized' }, { status: 401 })
   }
 

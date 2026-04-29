@@ -1,12 +1,11 @@
-import { cookies } from 'next/headers'
 import type { NextRequest } from 'next/server'
 import { generateLanding } from '@/lib/engine/assembler'
 import { saveLanding } from '@/lib/db/saveLanding'
 import type { ProspectInput } from '@/lib/engine/assembler'
+import { isAuthorized } from '@/lib/auth'
 
 export async function POST(request: NextRequest) {
-  const cookieStore = await cookies()
-  if (cookieStore.get('landingforge_auth')?.value !== 'true') {
+  if (!await isAuthorized(request)) {
     return Response.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
