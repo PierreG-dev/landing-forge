@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Copy, ExternalLink, RefreshCw, Trash2, Plus, Zap, Eye, BarChart2 } from 'lucide-react'
+import { Copy, ExternalLink, RefreshCw, Trash2, Plus, Zap, Eye, BarChart2, Download, Upload } from 'lucide-react'
 
 type LandingRow = {
   id: string
@@ -24,6 +24,29 @@ export default function DashboardClient({ landings, sectorMap }: Props) {
   const router = useRouter()
   const [loadingSlug, setLoadingSlug] = useState<string | null>(null)
   const [copiedSlug, setCopiedSlug] = useState<string | null>(null)
+  const [importStatus, setImportStatus] = useState<{ ok: boolean; message: string } | null>(null)
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  async function handleImport(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0]
+    if (!file) return
+    e.target.value = ''
+
+    const formData = new FormData()
+    formData.append('file', file)
+
+    const res = await fetch('/api/db/import', { method: 'POST', body: formData })
+    const data = await res.json()
+
+    if (res.ok) {
+      setImportStatus({ ok: true, message: data.message })
+      router.refresh()
+    } else {
+      setImportStatus({ ok: false, message: data.error ?? 'Erreur inconnue' })
+    }
+
+    setTimeout(() => setImportStatus(null), 6000)
+  }
 
   async function handleRegenerate(slug: string) {
     setLoadingSlug(slug)
@@ -63,12 +86,45 @@ export default function DashboardClient({ landings, sectorMap }: Props) {
             <Zap className="w-5 h-5 text-primary" />
             <span className="text-lg font-bold">LandingForge</span>
           </div>
-          <a href="/new" className="btn btn-primary btn-sm gap-2">
-            <Plus className="w-4 h-4" />
-            Nouvelle landing
-          </a>
+          <div className="flex items-center gap-2">
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept=".db,application/octet-stream"
+              className="hidden"
+              onChange={handleImport}
+            />
+            <button
+              onClick={() => fileInputRef.current?.click()}
+              className="btn btn-ghost btn-sm gap-2"
+              title="Importer une base de données"
+            >
+              <Upload className="w-4 h-4" />
+              Importer DB
+            </button>
+            <a
+              href="/api/db/export"
+              className="btn btn-ghost btn-sm gap-2"
+              title="Télécharger la base de données"
+            >
+              <Download className="w-4 h-4" />
+              Exporter DB
+            </a>
+            <a href="/new" className="btn btn-primary btn-sm gap-2">
+              <Plus className="w-4 h-4" />
+              Nouvelle landing
+            </a>
+          </div>
         </div>
       </div>
+
+      {importStatus && (
+        <div className="toast toast-top toast-end z-50">
+          <div className={`alert ${importStatus.ok ? 'alert-success' : 'alert-error'} text-sm`}>
+            <span>{importStatus.message}</span>
+          </div>
+        </div>
+      )}
 
       <div className="max-w-7xl mx-auto px-6 py-8 space-y-6">
         <div className="stats shadow bg-base-100">
