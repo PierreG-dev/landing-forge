@@ -6,7 +6,7 @@ import { safeGet, getShadowCSS, getBorderRadius, getSectionPadding, getCardPaddi
 type LucideIcon = React.ComponentType<{ size?: number; style?: React.CSSProperties }>
 function Icon({ name, size = 24, style }: { name: string; size?: number; style?: React.CSSProperties }) {
   const Comp = ((LucideIcons as unknown) as Record<string, LucideIcon>)[name]
-  if (!Comp) return <LucideIcons.CheckCircle size={size} style={style} />
+  if (!Comp) return <LucideIcons.Star size={size} style={style} />
   return <Comp size={size} style={style} />
 }
 
