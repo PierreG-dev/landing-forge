@@ -14,7 +14,7 @@ const FALLBACK_SERVICES: [string, string, string] = ['Notre expertise', 'Solutio
 const SECTION_TITLE = 'Nos prestations'
 const SECTION_SUBTITLE = 'Des services pensés pour répondre à vos besoins à {{city}}'
 
-// ── Variant 1: 3 cards horizontal — icon + title + desc ──────────────────────
+// ── Variant 1: Cartes numérotées — ordinal en filigrane + bordure accent gauche ─
 
 function V1(props: BlockProps) {
   const { prospect, sector, theme, corpusIndex } = props
@@ -27,17 +27,14 @@ function V1(props: BlockProps) {
   const icons = sector.icons.length >= 3 ? sector.icons : ['Sparkles', 'Star', 'CheckCircle']
   const radius = getBorderRadius(theme)
   const shadow = getShadowCSS(theme)
-  const cardPad = getCardPadding(theme)
   const py = getSectionPadding(theme)
 
   return (
     <section style={{ position: 'relative', backgroundColor: 'var(--color-surface)', padding: `${py} 2rem`, overflow: 'hidden' }}>
-      {/* Decorative */}
-      <div style={{ position: 'absolute', top: '-8rem', right: '-8rem', width: '28rem', height: '28rem', borderRadius: '50%', background: 'var(--color-primary)', opacity: 0.04, pointerEvents: 'none' }} />
-
       <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
+        {/* En-tête */}
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-          <p style={{ fontFamily: 'var(--font-accent)', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-primary)', marginBottom: '0.75rem' }}>
+          <p style={{ fontFamily: 'var(--font-accent)', fontSize: '0.75rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--color-primary)', marginBottom: '0.75rem' }}>
             {SECTION_TITLE}
           </p>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', fontWeight: 800, color: 'var(--color-text)', lineHeight: 1.2 }}>
@@ -45,20 +42,35 @@ function V1(props: BlockProps) {
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.75rem' }}>
+        {/* Grille de cartes */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
           {services.map((name, i) => (
-            <div key={i} style={{ backgroundColor: 'white', borderRadius: radius, padding: cardPad, boxShadow: shadow, border: '1px solid rgba(0,0,0,0.05)', position: 'relative', overflow: 'hidden', transition: 'transform 0.2s ease' }}>
-              {/* Accent top bar */}
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: `linear-gradient(to right, var(--color-primary), var(--color-secondary))` }} />
-              <div style={{ width: '3.25rem', height: '3.25rem', borderRadius: '0.625rem', backgroundColor: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem', opacity: 0.9 }}>
-                <Icon name={icons[i] ?? 'Star'} size={20} style={{ color: 'white' }} />
+            <div key={i} style={{ position: 'relative', backgroundColor: 'white', borderRadius: radius, padding: '2rem', boxShadow: shadow, border: '1px solid rgba(0,0,0,0.06)', overflow: 'hidden', borderLeft: '3px solid var(--color-primary)' }}>
+              {/* Ordinal filigrane */}
+              <div style={{ position: 'absolute', bottom: '-0.75rem', right: '1.25rem', fontFamily: 'var(--font-display)', fontSize: '5.5rem', fontWeight: 900, color: 'var(--color-primary)', opacity: 0.05, lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>
+                {String(i + 1).padStart(2, '0')}
               </div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1875rem', fontWeight: 700, color: 'var(--color-text)', marginBottom: '0.625rem', lineHeight: 1.3 }}>
-                {name}
-              </h3>
-              <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.875rem', color: 'var(--color-text-light)', lineHeight: 1.65 }}>
-                Service professionnel à {prospect.city}. Contactez {prospect.company} pour en savoir plus.
-              </p>
+
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                {/* Ordinal label */}
+                <div style={{ fontFamily: 'var(--font-accent)', fontSize: '0.68rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-primary)', opacity: 0.65, marginBottom: '1.25rem' }}>
+                  {String(i + 1).padStart(2, '0')} —
+                </div>
+                {/* Icône */}
+                <div style={{ width: '2.75rem', height: '2.75rem', borderRadius: '0.5rem', background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
+                  <Icon name={icons[i] ?? 'Star'} size={18} style={{ color: 'white' }} />
+                </div>
+                {/* Titre */}
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1875rem', fontWeight: 700, color: 'var(--color-text)', marginBottom: '0.875rem', lineHeight: 1.3 }}>
+                  {name}
+                </h3>
+                {/* Séparateur */}
+                <div style={{ width: '1.5rem', height: '1px', background: 'var(--color-primary)', opacity: 0.3, marginBottom: '0.875rem' }} />
+                {/* Description */}
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.875rem', color: 'var(--color-text-light)', lineHeight: 1.65 }}>
+                  Service professionnel à {prospect.city}. Contactez {prospect.company} pour en savoir plus.
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -67,9 +79,73 @@ function V1(props: BlockProps) {
   )
 }
 
-// ── Variant 2: Vertical list — large icon left, title + desc right ────────────
+// ── Variant 2: Timeline numérotée — axe vertical + vitrine horizontale ─────────
 
 function V2(props: BlockProps) {
+  const { prospect, sector, theme, corpusIndex } = props
+  const raw = safeGet(sector.corpus.services, corpusIndex, FALLBACK_SERVICES)
+  const services = [
+    prospect.service1 ?? raw[0],
+    prospect.service2 ?? raw[1],
+    prospect.service3 ?? raw[2],
+  ]
+  const icons = sector.icons.length >= 3 ? sector.icons : ['Sparkles', 'Star', 'CheckCircle']
+  const py = getSectionPadding(theme)
+
+  return (
+    <section style={{ position: 'relative', backgroundColor: 'var(--color-surface)', padding: `${py} 2rem`, overflow: 'hidden' }}>
+      <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
+        {/* En-tête aligné gauche */}
+        <div style={{ marginBottom: '3.5rem' }}>
+          <p style={{ fontFamily: 'var(--font-accent)', fontSize: '0.75rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--color-primary)', marginBottom: '0.75rem' }}>
+            {SECTION_TITLE}
+          </p>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', fontWeight: 800, color: 'var(--color-text)', lineHeight: 1.2, maxWidth: '38rem' }}>
+            {substitute(SECTION_SUBTITLE, prospect)}
+          </h2>
+        </div>
+
+        {/* Items timeline */}
+        <div style={{ position: 'relative' }}>
+          {/* Axe vertical */}
+          <div style={{ position: 'absolute', left: '1.625rem', top: '1.625rem', bottom: '1.625rem', width: '1px', background: 'var(--color-primary)', opacity: 0.15, pointerEvents: 'none' }} />
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+            {services.map((name, i) => (
+              <div key={i} style={{ display: 'flex', gap: '2.5rem', alignItems: 'flex-start', padding: '2rem 0', borderBottom: i < services.length - 1 ? '1px solid rgba(0,0,0,0.06)' : 'none' }}>
+                {/* Numéro-nœud */}
+                <div style={{ flexShrink: 0, width: '3.25rem', height: '3.25rem', borderRadius: '50%', background: i === 0 ? 'var(--color-primary)' : 'white', border: '1px solid', borderColor: i === 0 ? 'var(--color-primary)' : 'rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1, position: 'relative' }}>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '1rem', fontWeight: 800, color: i === 0 ? 'white' : 'var(--color-primary)', lineHeight: 1 }}>
+                    {i + 1}
+                  </span>
+                </div>
+
+                {/* Contenu */}
+                <div style={{ flex: 1, paddingTop: '0.5rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+                    <div style={{ width: '2rem', height: '2rem', borderRadius: '0.375rem', backgroundColor: 'var(--color-primary)', opacity: 0.85, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Icon name={icons[i] ?? 'Star'} size={14} style={{ color: 'white' }} />
+                    </div>
+                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 700, color: 'var(--color-text)', lineHeight: 1.2 }}>
+                      {name}
+                    </h3>
+                  </div>
+                  <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.9375rem', color: 'var(--color-text-light)', lineHeight: 1.7, maxWidth: '42rem' }}>
+                    Une expertise reconnue à {prospect.city}. {prospect.company} vous propose un accompagnement personnalisé pour répondre à vos besoins spécifiques.
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ── Variant 3: Magazine — service vedette pleine largeur + 2 secondaires ────────
+
+function V3(props: BlockProps) {
   const { prospect, sector, theme, corpusIndex } = props
   const raw = safeGet(sector.corpus.services, corpusIndex, FALLBACK_SERVICES)
   const services = [
@@ -83,31 +159,66 @@ function V2(props: BlockProps) {
 
   return (
     <section style={{ position: 'relative', backgroundColor: 'var(--color-surface)', padding: `${py} 2rem`, overflow: 'hidden' }}>
-      {/* Vertical accent line */}
-      <div style={{ position: 'absolute', left: 'calc(50% - 36rem + 3.5rem)', top: 0, bottom: 0, width: '1px', background: 'var(--color-primary)', opacity: 0.1, pointerEvents: 'none' }} />
-
       <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
-        <div style={{ marginBottom: '3rem' }}>
-          <p style={{ fontFamily: 'var(--font-accent)', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-primary)', marginBottom: '0.75rem' }}>
-            {SECTION_TITLE}
-          </p>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', fontWeight: 800, color: 'var(--color-text)', lineHeight: 1.2, maxWidth: '36rem' }}>
-            {substitute(SECTION_SUBTITLE, prospect)}
-          </h2>
+        {/* En-tête */}
+        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: '2rem', gap: '2rem', flexWrap: 'wrap' }}>
+          <div>
+            <p style={{ fontFamily: 'var(--font-accent)', fontSize: '0.75rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--color-primary)', marginBottom: '0.75rem' }}>
+              {SECTION_TITLE}
+            </p>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', fontWeight: 800, color: 'var(--color-text)', lineHeight: 1.2, maxWidth: '38rem' }}>
+              {substitute(SECTION_SUBTITLE, prospect)}
+            </h2>
+          </div>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-          {services.map((name, i) => (
-            <div key={i} style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', padding: '2rem', borderRadius: radius, backgroundColor: i % 2 === 0 ? 'white' : 'transparent', border: i % 2 === 0 ? '1px solid rgba(0,0,0,0.06)' : 'none' }}>
-              <div style={{ flex: '0 0 auto', width: '4.5rem', height: '4.5rem', borderRadius: '50%', background: `linear-gradient(135deg, var(--color-primary), var(--color-secondary))`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Icon name={icons[i] ?? 'Star'} size={26} style={{ color: 'white' }} />
+        {/* Carte vedette — pleine largeur */}
+        <div style={{ position: 'relative', backgroundColor: 'var(--color-primary)', borderRadius: radius, padding: '3.5rem', overflow: 'hidden', marginBottom: '1.25rem' }}>
+          {/* Filigrane */}
+          <div style={{ position: 'absolute', top: '-1rem', right: '-1rem', fontFamily: 'var(--font-display)', fontSize: 'clamp(7rem, 18vw, 15rem)', fontWeight: 900, color: 'rgba(255,255,255,0.06)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none', letterSpacing: '-0.04em' }}>
+            01
+          </div>
+          <div style={{ position: 'relative', zIndex: 1, display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '2.5rem', alignItems: 'center' }}>
+            <div style={{ width: '4rem', height: '4rem', borderRadius: '0.875rem', border: '1.5px solid rgba(255,255,255,0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Icon name={icons[0] ?? 'Star'} size={26} style={{ color: 'white' }} />
+            </div>
+            <div>
+              <div style={{ fontFamily: 'var(--font-accent)', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', marginBottom: '0.5rem' }}>
+                Service principal
               </div>
-              <div style={{ flex: 1 }}>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 700, color: 'var(--color-text)', marginBottom: '0.5rem' }}>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)', fontWeight: 800, color: 'white', lineHeight: 1.2, marginBottom: '0.75rem' }}>
+                {services[0]}
+              </h3>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.9375rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.65, maxWidth: '38rem' }}>
+                Notre cœur de métier à {prospect.city}. {prospect.company} déploie toute son expertise sur ce service pour vous garantir des résultats à la hauteur de vos attentes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* 2 cartes secondaires */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
+          {services.slice(1).map((name, i) => (
+            <div key={i} style={{ position: 'relative', backgroundColor: 'white', borderRadius: radius, padding: '2rem', border: '1px solid rgba(0,0,0,0.07)', overflow: 'hidden' }}>
+              {/* Ordinal filigrane */}
+              <div style={{ position: 'absolute', bottom: '-0.5rem', right: '1rem', fontFamily: 'var(--font-display)', fontSize: '4.5rem', fontWeight: 900, color: 'var(--color-primary)', opacity: 0.05, lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>
+                {String(i + 2).padStart(2, '0')}
+              </div>
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', marginBottom: '1.25rem' }}>
+                  <div style={{ width: '2.5rem', height: '2.5rem', borderRadius: '0.5rem', backgroundColor: 'var(--color-primary)', opacity: 0.85, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Icon name={icons[i + 1] ?? 'Star'} size={16} style={{ color: 'white' }} />
+                  </div>
+                  <div style={{ fontFamily: 'var(--font-accent)', fontSize: '0.68rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--color-primary)', opacity: 0.65 }}>
+                    {String(i + 2).padStart(2, '0')} —
+                  </div>
+                </div>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 700, color: 'var(--color-text)', marginBottom: '0.625rem', lineHeight: 1.3 }}>
                   {name}
                 </h3>
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.9375rem', color: 'var(--color-text-light)', lineHeight: 1.7 }}>
-                  Une expertise reconnue à {prospect.city}. {prospect.company} vous propose un accompagnement personnalisé pour répondre à vos besoins spécifiques.
+                <div style={{ width: '1.5rem', height: '1px', background: 'var(--color-primary)', opacity: 0.3, marginBottom: '0.75rem' }} />
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.875rem', color: 'var(--color-text-light)', lineHeight: 1.65 }}>
+                  Expert en {name.toLowerCase()} à {prospect.city}.
                 </p>
               </div>
             </div>
@@ -118,57 +229,7 @@ function V2(props: BlockProps) {
   )
 }
 
-// ── Variant 3: 3-col grid, alternating primary/neutral backgrounds ─────────────
-
-function V3(props: BlockProps) {
-  const { prospect, sector, theme, corpusIndex } = props
-  const raw = safeGet(sector.corpus.services, corpusIndex, FALLBACK_SERVICES)
-  const services = [
-    prospect.service1 ?? raw[0],
-    prospect.service2 ?? raw[1],
-    prospect.service3 ?? raw[2],
-  ]
-  const icons = sector.icons.length >= 3 ? sector.icons : ['Sparkles', 'Star', 'CheckCircle']
-  const py = getSectionPadding(theme)
-
-  return (
-    <section style={{ position: 'relative', overflow: 'hidden' }}>
-      {/* Title band */}
-      <div style={{ backgroundColor: 'var(--color-surface)', padding: `${py} 2rem 3rem`, textAlign: 'center' }}>
-        <p style={{ fontFamily: 'var(--font-accent)', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-primary)', marginBottom: '0.75rem' }}>
-          {SECTION_TITLE}
-        </p>
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', fontWeight: 800, color: 'var(--color-text)', lineHeight: 1.2 }}>
-          {substitute(SECTION_SUBTITLE, prospect)}
-        </h2>
-      </div>
-
-      {/* Alternating panels */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
-        {services.map((name, i) => {
-          const isPrimary = i === 1
-          return (
-            <div key={i} style={{ position: 'relative', padding: '4rem 2.5rem', backgroundColor: isPrimary ? 'var(--color-primary)' : 'var(--color-surface)', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', overflow: 'hidden' }}>
-              {/* Decorative circle */}
-              <div style={{ position: 'absolute', bottom: '-3rem', right: '-3rem', width: '10rem', height: '10rem', borderRadius: '50%', background: isPrimary ? 'rgba(255,255,255,0.06)' : 'var(--color-primary)', opacity: isPrimary ? 1 : 0.05, pointerEvents: 'none' }} />
-              <div style={{ width: '4rem', height: '4rem', borderRadius: '0.875rem', backgroundColor: isPrimary ? 'rgba(255,255,255,0.18)' : 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                <Icon name={icons[i] ?? 'Star'} size={24} style={{ color: isPrimary ? 'white' : 'white' }} />
-              </div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 700, color: isPrimary ? 'white' : 'var(--color-text)', marginBottom: '0.75rem', lineHeight: 1.3 }}>
-                {name}
-              </h3>
-              <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.875rem', color: isPrimary ? 'rgba(255,255,255,0.8)' : 'var(--color-text-light)', lineHeight: 1.65 }}>
-                Expert en {name.toLowerCase()} à {prospect.city}.
-              </p>
-            </div>
-          )
-        })}
-      </div>
-    </section>
-  )
-}
-
-// ── Variant 4: Accordion-style cards ──────────────────────────────────────────
+// ── Variant 4: Accordion élégant — numéros-pill + typo soignée ─────────────────
 
 function V4(props: BlockProps) {
   const { prospect, sector, theme, corpusIndex } = props
@@ -185,11 +246,10 @@ function V4(props: BlockProps) {
 
   return (
     <section style={{ position: 'relative', backgroundColor: 'var(--color-surface)', padding: `${py} 2rem`, overflow: 'hidden' }}>
-      <div style={{ position: 'absolute', top: '50%', right: '-6rem', transform: 'translateY(-50%)', width: '20rem', height: '20rem', borderRadius: '50%', background: 'var(--color-secondary)', opacity: 0.05, pointerEvents: 'none' }} />
-
-      <div style={{ maxWidth: '56rem', margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <p style={{ fontFamily: 'var(--font-accent)', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-primary)', marginBottom: '0.75rem' }}>
+      <div style={{ maxWidth: '52rem', margin: '0 auto' }}>
+        {/* En-tête */}
+        <div style={{ marginBottom: '3rem' }}>
+          <p style={{ fontFamily: 'var(--font-accent)', fontSize: '0.75rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--color-primary)', marginBottom: '0.75rem' }}>
             {SECTION_TITLE}
           </p>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', fontWeight: 800, color: 'var(--color-text)', lineHeight: 1.2 }}>
@@ -197,22 +257,38 @@ function V4(props: BlockProps) {
           </h2>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
           {services.map((name, i) => (
-            <details key={i} style={{ backgroundColor: 'white', borderRadius: radius, boxShadow: shadow, border: '1px solid rgba(0,0,0,0.05)', overflow: 'hidden' }}>
-              <summary style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', padding: '1.5rem 2rem', cursor: 'pointer', listStyle: 'none', outline: 'none' }}>
-                <div style={{ flex: '0 0 auto', width: '2.75rem', height: '2.75rem', borderRadius: '0.5rem', backgroundColor: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <Icon name={icons[i] ?? 'Star'} size={18} style={{ color: 'white' }} />
+            <details key={i} style={{ backgroundColor: 'white', borderRadius: radius, boxShadow: shadow, border: '1px solid rgba(0,0,0,0.07)', overflow: 'hidden' }}>
+              <summary style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', padding: '1.625rem 2rem', cursor: 'pointer', listStyle: 'none', outline: 'none' }}>
+                {/* Pill numérotée */}
+                <div style={{ flexShrink: 0, width: '2rem', height: '2rem', borderRadius: '50%', backgroundColor: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <span style={{ fontFamily: 'var(--font-accent)', fontSize: '0.75rem', fontWeight: 700, color: 'white', lineHeight: 1 }}>
+                    {i + 1}
+                  </span>
                 </div>
-                <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.125rem', fontWeight: 700, color: 'var(--color-text)', flex: 1 }}>
+                {/* Icône */}
+                <div style={{ flexShrink: 0, width: '2.25rem', height: '2.25rem', borderRadius: '0.375rem', backgroundColor: 'var(--color-primary)', opacity: 0.1, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+                  <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Icon name={icons[i] ?? 'Star'} size={14} style={{ color: 'var(--color-primary)' }} />
+                  </div>
+                </div>
+                {/* Titre */}
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.0625rem', fontWeight: 700, color: 'var(--color-text)', flex: 1, lineHeight: 1.3 }}>
                   {name}
                 </span>
-                <span style={{ fontFamily: 'var(--font-accent)', fontSize: '1.25rem', color: 'var(--color-primary)', flex: '0 0 auto' }}>+</span>
+                {/* Indicateur expand */}
+                <span style={{ fontFamily: 'var(--font-accent)', fontSize: '1.375rem', fontWeight: 300, color: 'var(--color-primary)', flexShrink: 0, lineHeight: 1 }}>
+                  +
+                </span>
               </summary>
-              <div style={{ padding: '0 2rem 1.5rem 5.25rem', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.9375rem', color: 'var(--color-text-light)', lineHeight: 1.7, paddingTop: '1.25rem' }}>
-                  {prospect.company} vous propose un service {name.toLowerCase()} de haute qualité à {prospect.city}. Notre équipe d&apos;experts est à votre disposition pour un accompagnement personnalisé.
-                </p>
+              {/* Contenu déplié */}
+              <div style={{ padding: '0 2rem 1.75rem', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
+                <div style={{ borderLeft: '2px solid var(--color-primary)', paddingLeft: '1.25rem', marginTop: '1.25rem' }}>
+                  <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.9375rem', color: 'var(--color-text-light)', lineHeight: 1.75 }}>
+                    {prospect.company} vous propose un service {name.toLowerCase()} de haute qualité à {prospect.city}. Notre équipe d&apos;experts est à votre disposition pour un accompagnement personnalisé.
+                  </p>
+                </div>
               </div>
             </details>
           ))}
@@ -222,7 +298,7 @@ function V4(props: BlockProps) {
   )
 }
 
-// ── Variant 5: 3 full-height blocks, gradient overlay, centered text ──────────
+// ── Variant 5: Panels pleine-hauteur — contenu enrichi + numéro architectural ──
 
 function V5(props: BlockProps) {
   const { prospect, sector, theme, corpusIndex } = props
@@ -243,9 +319,9 @@ function V5(props: BlockProps) {
 
   return (
     <section style={{ position: 'relative', overflow: 'hidden' }}>
-      {/* Section header */}
+      {/* En-tête */}
       <div style={{ backgroundColor: 'var(--color-surface)', padding: `${py} 2rem 3rem`, textAlign: 'center' }}>
-        <p style={{ fontFamily: 'var(--font-accent)', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-primary)', marginBottom: '0.75rem' }}>
+        <p style={{ fontFamily: 'var(--font-accent)', fontSize: '0.75rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--color-primary)', marginBottom: '0.75rem' }}>
           {SECTION_TITLE}
         </p>
         <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', fontWeight: 800, color: 'var(--color-text)', lineHeight: 1.2 }}>
@@ -253,19 +329,34 @@ function V5(props: BlockProps) {
         </h2>
       </div>
 
-      {/* Full-height panels */}
+      {/* Panels */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
         {services.map((name, i) => (
-          <div key={i} style={{ position: 'relative', padding: '5rem 2.5rem', minHeight: '360px', background: gradients[i], display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', top: '-4rem', left: '-4rem', width: '14rem', height: '14rem', borderRadius: '50%', background: 'rgba(0,0,0,0.08)', pointerEvents: 'none' }} />
-            <div style={{ position: 'absolute', bottom: '-5rem', right: '-4rem', width: '18rem', height: '18rem', borderRadius: '50%', background: 'rgba(255,255,255,0.06)', pointerEvents: 'none' }} />
-            <div style={{ position: 'relative', zIndex: 1 }}>
-              <div style={{ width: '5rem', height: '5rem', borderRadius: '50%', border: '1.5px solid rgba(255,255,255,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
-                <Icon name={icons[i] ?? 'Star'} size={28} style={{ color: 'white' }} />
+          <div key={i} style={{ position: 'relative', padding: '3.5rem 2.75rem 4rem', minHeight: '420px', background: gradients[i], display: 'flex', flexDirection: 'column', justifyContent: 'space-between', overflow: 'hidden' }}>
+            {/* Numéro architectural en fond */}
+            <div style={{ position: 'absolute', bottom: '-1.5rem', right: '-0.5rem', fontFamily: 'var(--font-display)', fontSize: 'clamp(8rem, 20vw, 16rem)', fontWeight: 900, color: 'rgba(0,0,0,0.08)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none', letterSpacing: '-0.04em' }}>
+              {String(i + 1).padStart(2, '0')}
+            </div>
+
+            {/* Haut du panel */}
+            <div>
+              <div style={{ width: '3.5rem', height: '3.5rem', borderRadius: '0.75rem', border: '1.5px solid rgba(255,255,255,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                <Icon name={icons[i] ?? 'Star'} size={22} style={{ color: 'white' }} />
               </div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', fontWeight: 800, color: 'white', lineHeight: 1.2 }}>
+              <div style={{ fontFamily: 'var(--font-accent)', fontSize: '0.68rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: '0.625rem' }}>
+                {String(i + 1).padStart(2, '0')} —
+              </div>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.375rem, 3vw, 1.875rem)', fontWeight: 800, color: 'white', lineHeight: 1.2, marginBottom: '1rem' }}>
                 {name}
               </h3>
+            </div>
+
+            {/* Bas du panel — description + trait */}
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <div style={{ width: '2rem', height: '1px', background: 'rgba(255,255,255,0.45)', marginBottom: '1rem' }} />
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.875rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.7 }}>
+                Expert en {name.toLowerCase()} à {prospect.city}. Contactez {prospect.company} pour un devis personnalisé.
+              </p>
             </div>
           </div>
         ))}

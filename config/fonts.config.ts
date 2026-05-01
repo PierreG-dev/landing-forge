@@ -2,51 +2,6 @@ import type { FontCombo } from "./types";
 
 export const fontCombos: FontCombo[] = [
   {
-    id: "forge-001",
-    name: "Regal Authority",
-    description:
-      "Playfair Display s'impose avec noblesse, IBM Plex Sans ancre la lecture dans la clarté moderne. Un duo qui respire la crédibilité institutionnelle.",
-    targetSectors: [
-      "cabinet conseil",
-      "notariat",
-      "finance",
-      "immobilier haut de gamme",
-    ],
-    mood: ["luxury", "classic", "editorial", "clean", "timeless", "corporate"],
-    fonts: {
-      display: {
-        family: "Playfair Display",
-        weights: [700, 900],
-        variable: "--font-display",
-      },
-      body: {
-        family: "IBM Plex Sans",
-        weights: [400, 500, 600],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "IBM Plex Sans",
-        weights: [500, 700],
-        variable: "--font-accent",
-      },
-    },
-    pairing: {
-      contrast: "high",
-      style: "serif-sans",
-      mood: [
-        "luxury",
-        "classic",
-        "editorial",
-        "clean",
-        "timeless",
-        "corporate",
-      ],
-    },
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap",
-  },
-
-  {
     id: "forge-002",
     name: "Craft & Precision",
     description:
@@ -222,42 +177,6 @@ export const fontCombos: FontCombo[] = [
     },
     googleFontsUrl:
       "https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Manrope:wght@400;500;600;700;800&display=swap",
-  },
-
-  {
-    id: "forge-007",
-    name: "Velvet & Steel",
-    description:
-      "Abril Fatface frappe fort avec ses empattements vertigineux, Lato absorbe le choc avec une souplesse athlétique. Contraste maximum, élégance assurée.",
-    targetSectors: ["mode", "beauté", "cosmétiques", "lifestyle premium"],
-    mood: ["bold", "luxury", "editorial", "ornate", "typographic", "creative"],
-    fonts: {
-      display: {
-        family: "Abril Fatface",
-        weights: [400],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Lato",
-        weights: [300, 400, 700],
-        variable: "--font-body",
-      },
-      accent: { family: "Lato", weights: [700], variable: "--font-accent" },
-    },
-    pairing: {
-      contrast: "high",
-      style: "display-sans",
-      mood: [
-        "bold",
-        "luxury",
-        "editorial",
-        "ornate",
-        "typographic",
-        "creative",
-      ],
-    },
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@300;400;700&display=swap",
   },
 
   {
@@ -514,44 +433,6 @@ export const fontCombos: FontCombo[] = [
   },
 
   {
-    id: "forge-015",
-    name: "Atelier Couture",
-    description:
-      "Bodoni Moda déploie ses contrastes de pleins et de déliés avec une grâce absolue, Mulish accompagne sans jamais voler la vedette. Haute couture typographique.",
-    targetSectors: [
-      "joaillerie",
-      "horlogerie",
-      "maison de couture",
-      "art de la table",
-    ],
-    mood: ["luxury", "editorial", "ornate", "classic", "bold", "timeless"],
-    fonts: {
-      display: {
-        family: "Bodoni Moda",
-        weights: [700, 900],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Mulish",
-        weights: [300, 400, 600],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "Bodoni Moda",
-        weights: [400, 700],
-        variable: "--font-accent",
-      },
-    },
-    pairing: {
-      contrast: "high",
-      style: "serif-sans",
-      mood: ["luxury", "editorial", "ornate", "classic", "bold", "timeless"],
-    },
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,700;6..96,900&family=Mulish:wght@300;400;600&display=swap",
-  },
-
-  {
     id: "forge-016",
     name: "Civic Trust",
     description:
@@ -631,44 +512,6 @@ export const fontCombos: FontCombo[] = [
   },
 
   {
-    id: "forge-018",
-    name: "Serif Harmony",
-    description:
-      "Gilda Display pose une noblesse italienne intemporelle, Crimson Pro file une prose élégante aux corps de texte. Quand le tout-serif est une déclaration d'intention.",
-    targetSectors: [
-      "éditeur littéraire",
-      "académie",
-      "fondation culturelle",
-      "musée",
-    ],
-    mood: ["classic", "luxury", "editorial", "decorated", "calm", "timeless"],
-    fonts: {
-      display: {
-        family: "Gilda Display",
-        weights: [400],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Crimson Pro",
-        weights: [400, 600],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "Crimson Pro",
-        weights: [400, 600],
-        variable: "--font-accent",
-      },
-    },
-    pairing: {
-      contrast: "low",
-      style: "serif-serif",
-      mood: ["classic", "luxury", "editorial", "decorated", "calm", "timeless"],
-    },
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Gilda+Display&family=Crimson+Pro:wght@400;600&display=swap",
-  },
-
-  {
     id: "forge-019",
     name: "Kinetic Santé",
     description:
@@ -699,50 +542,5 @@ export const fontCombos: FontCombo[] = [
     },
     googleFontsUrl:
       "https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;500;600;700&family=Poppins:wght@500;700&display=swap",
-  },
-
-  {
-    id: "forge-020",
-    name: "Terroir & Expertise",
-    description:
-      "Playfair Display SC cisèle les petites capitales avec une prestance de domaine viticole, Quattrocento Sans ancre le contenu dans une lisibilité méditerranéenne et chaleureuse.",
-    targetSectors: [
-      "viticulture",
-      "oenotourisme",
-      "gastronomie régionale",
-      "terroir premium",
-    ],
-    mood: ["artisan", "classic", "organic", "decorated", "subtle", "timeless"],
-    fonts: {
-      display: {
-        family: "Playfair Display SC",
-        weights: [700],
-        variable: "--font-display",
-      },
-      body: {
-        family: "Quattrocento Sans",
-        weights: [400, 700],
-        variable: "--font-body",
-      },
-      accent: {
-        family: "Playfair Display SC",
-        weights: [400, 700],
-        variable: "--font-accent",
-      },
-    },
-    pairing: {
-      contrast: "high",
-      style: "serif-sans",
-      mood: [
-        "artisan",
-        "classic",
-        "organic",
-        "decorated",
-        "subtle",
-        "timeless",
-      ],
-    },
-    googleFontsUrl:
-      "https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700&family=Quattrocento+Sans:wght@400;700&display=swap",
   },
 ];

@@ -20,8 +20,14 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: 'company, sector, city required' }, { status: 400 })
   }
 
-  const landing = generateLanding(body)
-  await saveLanding(landing, 'form')
+  let landing
+  try {
+    landing = generateLanding(body)
+    await saveLanding(landing, 'form')
+  } catch (err) {
+    console.error('[generate] DB error:', err)
+    return Response.json({ error: 'Internal server error' }, { status: 500 })
+  }
 
   return Response.json({ slug: landing.slug })
 }

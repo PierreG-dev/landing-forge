@@ -40,6 +40,9 @@ export type SectorId =
   | 'commerce-local'
   | 'informatique'
   | 'evenementiel'
+  | 'electricien'
+  | 'plombier'
+  | 'garage'
 
 export type Theme = {
   id: string

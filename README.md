@@ -55,7 +55,7 @@ ADMIN_TOKEN="changeme"
 
 ### Secteurs supportés
 
-`restauration` · `artisan-batiment` · `beaute` · `sante` · `juridique` · `immobilier` · `sport-coaching` · `commerce-local` · `informatique` · `evenementiel`
+`restauration` · `artisan-batiment` · `beaute` · `sante` · `juridique` · `immobilier` · `sport-coaching` · `commerce-local` · `informatique` · `evenementiel` · `electricien` · `plombier` · `garage`
 
 ---
 

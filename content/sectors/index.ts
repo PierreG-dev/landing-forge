@@ -9,6 +9,9 @@ import { sportCoaching } from './sport-coaching'
 import { commerceLocal } from './commerce-local'
 import { informatique } from './informatique'
 import { evenementiel } from './evenementiel'
+import { electricien } from './electricien'
+import { plombier } from './plombier'
+import { garage } from './garage'
 
 export const sectors: Sector[] = [
   restauration,
@@ -21,6 +24,9 @@ export const sectors: Sector[] = [
   commerceLocal,
   informatique,
   evenementiel,
+  electricien,
+  plombier,
+  garage,
 ]
 
 export const sectorById: Record<SectorId, Sector> = Object.fromEntries(
