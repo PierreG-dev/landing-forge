@@ -58,4 +58,8 @@ export const unsplashKeywords: Record<SectorId, UnsplashKeywords> = {
     hero: ['car garage interior', 'mechanic workshop', 'auto repair shop', 'car service garage', 'automotive workshop'],
     gallery: ['car engine repair', 'mechanic working', 'car lift workshop', 'auto parts', 'vehicle maintenance'],
   },
+  generique: {
+    hero: ['professional office', 'business workspace', 'modern company', 'professional team', 'business interior'],
+    gallery: ['office workspace', 'business meeting', 'professional work', 'company team', 'modern office'],
+  },
 }
