@@ -65,4 +65,10 @@ export const sante: Sector = {
       ],
     ],
   },
+  blockConfig: {
+    mandatory: ['trust', 'faq'],
+    preferred: ['about', 'stats'],
+    excluded: ['gallery'],
+    optionalCount: [2, 4],
+  },
 }

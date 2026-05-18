@@ -45,19 +45,10 @@ function V1(props: BlockProps) {
         {/* Grille de cartes */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
           {services.map((name, i) => (
-            <div key={i} style={{ position: 'relative', backgroundColor: 'white', borderRadius: radius, padding: '2rem', boxShadow: shadow, border: '1px solid rgba(0,0,0,0.06)', overflow: 'hidden', borderLeft: '3px solid var(--color-primary)' }}>
-              {/* Ordinal filigrane */}
-              <div style={{ position: 'absolute', bottom: '-0.75rem', right: '1.25rem', fontFamily: 'var(--font-display)', fontSize: '5.5rem', fontWeight: 900, color: 'var(--color-primary)', opacity: 0.05, lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>
-                {String(i + 1).padStart(2, '0')}
-              </div>
-
-              <div style={{ position: 'relative', zIndex: 1 }}>
-                {/* Ordinal label */}
-                <div style={{ fontFamily: 'var(--font-accent)', fontSize: '0.68rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-primary)', opacity: 0.65, marginBottom: '1.25rem' }}>
-                  {String(i + 1).padStart(2, '0')} —
-                </div>
+            <div key={i} style={{ backgroundColor: 'white', borderRadius: radius, padding: '2rem', boxShadow: shadow, border: '1px solid rgba(0,0,0,0.06)', overflow: 'hidden', borderLeft: '3px solid var(--color-primary)' }}>
+              <div>
                 {/* Icône */}
-                <div style={{ width: '2.75rem', height: '2.75rem', borderRadius: '0.5rem', background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
+                <div style={{ width: '2.75rem', height: '2.75rem', borderRadius: '0.5rem', backgroundColor: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
                   <Icon name={icons[i] ?? 'Star'} size={18} style={{ color: 'white' }} />
                 </div>
                 {/* Titre */}
@@ -173,12 +164,8 @@ function V3(props: BlockProps) {
         </div>
 
         {/* Carte vedette — pleine largeur */}
-        <div style={{ position: 'relative', backgroundColor: 'var(--color-primary)', borderRadius: radius, padding: '3.5rem', overflow: 'hidden', marginBottom: '1.25rem' }}>
-          {/* Filigrane */}
-          <div style={{ position: 'absolute', top: '-1rem', right: '-1rem', fontFamily: 'var(--font-display)', fontSize: 'clamp(7rem, 18vw, 15rem)', fontWeight: 900, color: 'rgba(255,255,255,0.06)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none', letterSpacing: '-0.04em' }}>
-            01
-          </div>
-          <div style={{ position: 'relative', zIndex: 1, display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '2.5rem', alignItems: 'center' }}>
+        <div style={{ backgroundColor: 'var(--color-primary)', borderRadius: radius, padding: '3.5rem', overflow: 'hidden', marginBottom: '1.25rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '2.5rem', alignItems: 'center' }}>
             <div style={{ width: '4rem', height: '4rem', borderRadius: '0.875rem', border: '1.5px solid rgba(255,255,255,0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Icon name={icons[0] ?? 'Star'} size={26} style={{ color: 'white' }} />
             </div>
@@ -199,18 +186,11 @@ function V3(props: BlockProps) {
         {/* 2 cartes secondaires */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
           {services.slice(1).map((name, i) => (
-            <div key={i} style={{ position: 'relative', backgroundColor: 'white', borderRadius: radius, padding: '2rem', border: '1px solid rgba(0,0,0,0.07)', overflow: 'hidden' }}>
-              {/* Ordinal filigrane */}
-              <div style={{ position: 'absolute', bottom: '-0.5rem', right: '1rem', fontFamily: 'var(--font-display)', fontSize: '4.5rem', fontWeight: 900, color: 'var(--color-primary)', opacity: 0.05, lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>
-                {String(i + 2).padStart(2, '0')}
-              </div>
-              <div style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', marginBottom: '1.25rem' }}>
-                  <div style={{ width: '2.5rem', height: '2.5rem', borderRadius: '0.5rem', backgroundColor: 'var(--color-primary)', opacity: 0.85, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div key={i} style={{ backgroundColor: 'white', borderRadius: radius, padding: '2rem', border: '1px solid rgba(0,0,0,0.07)', overflow: 'hidden' }}>
+              <div>
+                <div style={{ marginBottom: '1.25rem' }}>
+                  <div style={{ width: '2.5rem', height: '2.5rem', borderRadius: '0.5rem', backgroundColor: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Icon name={icons[i + 1] ?? 'Star'} size={16} style={{ color: 'white' }} />
-                  </div>
-                  <div style={{ fontFamily: 'var(--font-accent)', fontSize: '0.68rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--color-primary)', opacity: 0.65 }}>
-                    {String(i + 2).padStart(2, '0')} —
                   </div>
                 </div>
                 <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 700, color: 'var(--color-text)', marginBottom: '0.625rem', lineHeight: 1.3 }}>
@@ -311,10 +291,10 @@ function V5(props: BlockProps) {
   const icons = sector.icons.length >= 3 ? sector.icons : ['Sparkles', 'Star', 'CheckCircle']
   const py = getSectionPadding(theme)
 
-  const gradients = [
-    'linear-gradient(160deg, var(--color-primary) 0%, var(--color-secondary) 100%)',
-    'linear-gradient(160deg, var(--color-secondary) 0%, var(--color-primary) 100%)',
-    'linear-gradient(160deg, var(--color-primary) 30%, var(--color-secondary) 100%)',
+  const panelBgs = [
+    'var(--color-primary)',
+    'var(--color-secondary)',
+    'var(--color-primary)',
   ]
 
   return (
@@ -332,19 +312,11 @@ function V5(props: BlockProps) {
       {/* Panels */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
         {services.map((name, i) => (
-          <div key={i} style={{ position: 'relative', padding: '3.5rem 2.75rem 4rem', minHeight: '420px', background: gradients[i], display: 'flex', flexDirection: 'column', justifyContent: 'space-between', overflow: 'hidden' }}>
-            {/* Numéro architectural en fond */}
-            <div style={{ position: 'absolute', bottom: '-1.5rem', right: '-0.5rem', fontFamily: 'var(--font-display)', fontSize: 'clamp(8rem, 20vw, 16rem)', fontWeight: 900, color: 'rgba(0,0,0,0.08)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none', letterSpacing: '-0.04em' }}>
-              {String(i + 1).padStart(2, '0')}
-            </div>
-
+          <div key={i} style={{ padding: '3.5rem 2.75rem 4rem', minHeight: '420px', backgroundColor: panelBgs[i], display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             {/* Haut du panel */}
             <div>
               <div style={{ width: '3.5rem', height: '3.5rem', borderRadius: '0.75rem', border: '1.5px solid rgba(255,255,255,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
                 <Icon name={icons[i] ?? 'Star'} size={22} style={{ color: 'white' }} />
-              </div>
-              <div style={{ fontFamily: 'var(--font-accent)', fontSize: '0.68rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: '0.625rem' }}>
-                {String(i + 1).padStart(2, '0')} —
               </div>
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.375rem, 3vw, 1.875rem)', fontWeight: 800, color: 'white', lineHeight: 1.2, marginBottom: '1rem' }}>
                 {name}

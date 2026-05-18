@@ -1,14 +1,8 @@
 import { prisma } from '@/lib/prisma'
 import type { GeneratedLanding } from '@/lib/engine/assembler'
 
-export async function saveLanding(
-  landing: GeneratedLanding,
-  savedVia: string,
-  overrideSlug?: string
-): Promise<string> {
-  const slug = overrideSlug ?? landing.slug
-
-  const data = {
+function buildData(landing: GeneratedLanding, savedVia: string, extra?: Record<string, string | null>) {
+  return {
     companyName: landing.prospect.company,
     sector: landing.prospect.sector,
     city: landing.prospect.city,
@@ -27,13 +21,39 @@ export async function saveLanding(
     seed: landing.seed,
     blocks: JSON.stringify(landing.blocks),
     savedVia,
+    ...extra,
   }
+}
 
+async function upsertWithSlug(slug: string, data: ReturnType<typeof buildData>): Promise<void> {
   await prisma.landing.upsert({
     where: { slug },
     update: data,
     create: { slug, ...data },
   })
+}
 
-  return slug
+export async function saveLanding(
+  landing: GeneratedLanding,
+  savedVia: string,
+  overrideSlug?: string,
+  extra?: Record<string, string | null>
+): Promise<string> {
+  const slug = overrideSlug ?? landing.slug
+  const data = buildData(landing, savedVia, extra)
+
+  try {
+    await upsertWithSlug(slug, data)
+    return slug
+  } catch (err: unknown) {
+    // Unique constraint violation → retry with a fresh suffix
+    const isUniqueViolation =
+      err instanceof Error && (err.message.includes('Unique constraint') || err.message.includes('UNIQUE constraint'))
+    if (isUniqueViolation) {
+      const fallbackSlug = `${slug}-${Math.random().toString(36).slice(2, 6)}`
+      await upsertWithSlug(fallbackSlug, data)
+      return fallbackSlug
+    }
+    throw err
+  }
 }

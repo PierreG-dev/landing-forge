@@ -65,4 +65,10 @@ export const garage: Sector = {
       ],
     ],
   },
+  blockConfig: {
+    mandatory: ['services', 'trust'],
+    preferred: ['stats', 'testimonials'],
+    excluded: ['gallery'],
+    optionalCount: [2, 4],
+  },
 }

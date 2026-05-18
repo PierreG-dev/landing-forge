@@ -56,7 +56,7 @@ function V1(props: BlockProps) {
                 &ldquo;{t.text}&rdquo;
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
-                <div style={{ width: '2.5rem', height: '2.5rem', borderRadius: '50%', background: `linear-gradient(135deg, var(--color-primary), var(--color-secondary))`, display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '0 0 auto' }}>
+                <div style={{ width: '2.5rem', height: '2.5rem', borderRadius: '50%', backgroundColor: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '0 0 auto' }}>
                   <span style={{ fontFamily: 'var(--font-accent)', fontSize: '0.875rem', fontWeight: 700, color: 'white' }}>
                     {t.name.charAt(0)}
                   </span>
@@ -206,7 +206,7 @@ function V4(props: BlockProps) {
           {items.map((t, i) => (
             <div key={i} style={{ display: 'flex', gap: '0', borderRadius: radius, overflow: 'hidden', boxShadow: shadow, backgroundColor: 'white' }}>
               {/* Lateral color bar */}
-              <div style={{ width: '4px', flex: '0 0 4px', background: `linear-gradient(to bottom, var(--color-primary), var(--color-secondary))` }} />
+              <div style={{ width: '4px', flex: '0 0 4px', backgroundColor: 'var(--color-primary)' }} />
               <div style={{ padding: '1.25rem 1.5rem', flex: 1 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.625rem' }}>
                   <div>

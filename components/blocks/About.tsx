@@ -27,7 +27,7 @@ function V1(props: BlockProps) {
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', fontWeight: 800, color: 'var(--color-text)', lineHeight: 1.15, marginBottom: '1.5rem' }}>
             {prospect.company}
           </h2>
-          <div style={{ width: '3rem', height: '3px', background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))', marginBottom: '1.5rem', borderRadius: '2px' }} />
+          <div style={{ width: '3rem', height: '3px', backgroundColor: 'var(--color-primary)', marginBottom: '1.5rem', borderRadius: '2px' }} />
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.0625rem', color: 'var(--color-text-light)', lineHeight: 1.75, marginBottom: '2rem' }}>
             {desc}
           </p>
@@ -157,11 +157,11 @@ function V3(props: BlockProps) {
         {/* Timeline */}
         <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2rem' }}>
           {/* Connecting line */}
-          <div style={{ position: 'absolute', top: '1.75rem', left: '16.66%', right: '16.66%', height: '2px', background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))', zIndex: 0 }} />
+          <div style={{ position: 'absolute', top: '1.75rem', left: '16.66%', right: '16.66%', height: '2px', backgroundColor: 'var(--color-primary)', opacity: 0.2, zIndex: 0 }} />
 
           {milestones.map((m, i) => (
             <div key={i} style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-              <div style={{ width: '3.5rem', height: '3.5rem', borderRadius: '50%', background: `linear-gradient(135deg, var(--color-primary), var(--color-secondary))`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem', boxShadow: shadow }}>
+              <div style={{ width: '3.5rem', height: '3.5rem', borderRadius: '50%', backgroundColor: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem', boxShadow: shadow }}>
                 <span style={{ fontFamily: 'var(--font-accent)', fontSize: '1.125rem', fontWeight: 700, color: 'white' }}>{i + 1}</span>
               </div>
               <p style={{ fontFamily: 'var(--font-accent)', fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--color-primary)', marginBottom: '0.375rem' }}>

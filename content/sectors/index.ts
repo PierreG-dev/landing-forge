@@ -12,6 +12,7 @@ import { evenementiel } from './evenementiel'
 import { electricien } from './electricien'
 import { plombier } from './plombier'
 import { garage } from './garage'
+import { generique } from './generique'
 
 export const sectors: Sector[] = [
   restauration,
@@ -27,6 +28,7 @@ export const sectors: Sector[] = [
   electricien,
   plombier,
   garage,
+  generique,
 ]
 
 export const sectorById: Record<SectorId, Sector> = Object.fromEntries(

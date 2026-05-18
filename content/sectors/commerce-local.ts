@@ -65,4 +65,10 @@ export const commerceLocal: Sector = {
       ],
     ],
   },
+  blockConfig: {
+    mandatory: ['gallery', 'trust'],
+    preferred: ['services', 'testimonials'],
+    excluded: ['stats'],
+    optionalCount: [2, 4],
+  },
 }

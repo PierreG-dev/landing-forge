@@ -6,12 +6,12 @@ const SECTION_TITLE = 'Galerie'
 
 // Gradient tiles used when no real images are available
 const TILE_GRADIENTS = [
-  'linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%)',
-  'linear-gradient(160deg, var(--color-secondary) 0%, var(--color-primary) 100%)',
-  'linear-gradient(110deg, var(--color-primary) 40%, var(--color-secondary) 100%)',
-  'linear-gradient(200deg, var(--color-secondary) 20%, var(--color-primary) 100%)',
-  'linear-gradient(135deg, var(--color-primary) 20%, var(--color-secondary) 80%)',
-  'linear-gradient(155deg, var(--color-secondary) 0%, var(--color-primary) 70%)',
+  'var(--color-primary)',
+  'var(--color-secondary)',
+  'var(--color-primary)',
+  'var(--color-secondary)',
+  'var(--color-primary)',
+  'var(--color-secondary)',
 ]
 
 function getImages(sector: BlockProps['sector']): string[] {

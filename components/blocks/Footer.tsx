@@ -12,7 +12,7 @@ function V1(props: BlockProps) {
   return (
     <footer style={{ position: 'relative', backgroundColor: 'var(--color-text)', color: 'rgba(255,255,255,0.75)', overflow: 'hidden' }}>
       {/* Top accent bar */}
-      <div style={{ height: '3px', background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))' }} />
+      <div style={{ height: '3px', backgroundColor: 'var(--color-primary)' }} />
 
       <div style={{ maxWidth: '72rem', margin: '0 auto', padding: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
         {/* Logo / company name */}
@@ -49,9 +49,16 @@ function V1(props: BlockProps) {
         </div>
 
         {/* Copyright */}
-        <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem', opacity: 0.5 }}>
-          © {currentYear} {prospect.company}
-        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.25rem' }}>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem', opacity: 0.5 }}>
+            © {currentYear} {prospect.company}
+          </p>
+          {props.sector.images.hero.length > 0 && (
+            <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'var(--font-body)', fontSize: '0.6875rem', opacity: 0.3, color: 'inherit', textDecoration: 'none' }}>
+              Photos : Unsplash
+            </a>
+          )}
+        </div>
       </div>
     </footer>
   )
@@ -66,7 +73,7 @@ function V2(props: BlockProps) {
   return (
     <footer style={{ position: 'relative', backgroundColor: 'var(--color-text)', color: 'rgba(255,255,255,0.75)', overflow: 'hidden' }}>
       {/* Top accent bar */}
-      <div style={{ height: '3px', background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))' }} />
+      <div style={{ height: '3px', backgroundColor: 'var(--color-primary)' }} />
 
       {/* Decorative */}
       <div style={{ position: 'absolute', bottom: '-4rem', right: '-4rem', width: '18rem', height: '18rem', borderRadius: '50%', background: 'var(--color-primary)', opacity: 0.05, pointerEvents: 'none' }} />
@@ -150,9 +157,16 @@ function V2(props: BlockProps) {
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem', opacity: 0.45 }}>
             © {currentYear} {prospect.company} — Tous droits réservés
           </p>
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem', opacity: 0.35 }}>
-            {sector.label} · {prospect.city}
-          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.2rem' }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem', opacity: 0.35 }}>
+              {sector.label} · {prospect.city}
+            </p>
+            {props.sector.images.hero.length > 0 && (
+              <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'var(--font-body)', fontSize: '0.6875rem', opacity: 0.25, color: 'inherit', textDecoration: 'none' }}>
+                Photos : Unsplash
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </footer>

@@ -32,17 +32,12 @@ function V1(props: BlockProps) {
       <div style={{ position: 'absolute', top: 0, left: '2rem', right: '2rem', height: '1px', background: 'rgba(255,255,255,0.15)' }} />
       <div style={{ position: 'absolute', bottom: 0, left: '2rem', right: '2rem', height: '1px', background: 'rgba(255,255,255,0.15)' }} />
 
-      {/* Filigrane — premier chiffre en arrière-plan */}
-      <div style={{ position: 'absolute', top: '50%', right: '-1rem', transform: 'translateY(-50%)', fontFamily: 'var(--font-display)', fontSize: 'clamp(10rem, 26vw, 22rem)', fontWeight: 900, color: 'rgba(255,255,255,0.04)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none', letterSpacing: '-0.04em' }}>
-        {displayStats[0]?.value}
-      </div>
-
       <div style={{ position: 'relative', zIndex: 1, maxWidth: '72rem', margin: '0 auto', display: 'grid', gridTemplateColumns: `repeat(${displayStats.length}, 1fr)` }}>
         {displayStats.map((stat, i) => (
           <div key={i} style={{ position: 'relative', padding: '1.5rem 2rem', borderRight: i < displayStats.length - 1 ? '1px solid rgba(255,255,255,0.12)' : 'none' }}>
-            {/* Ordinal */}
-            <div style={{ fontFamily: 'var(--font-accent)', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginBottom: '1rem' }}>
-              — {String(i + 1).padStart(2, '0')}
+            {/* Icône */}
+            <div style={{ width: '2rem', height: '2rem', borderRadius: '0.375rem', backgroundColor: 'rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
+              <Icon name={STAT_ICONS[i] ?? 'TrendingUp'} size={14} style={{ color: 'rgba(255,255,255,0.9)' }} />
             </div>
             {/* Valeur */}
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 900, color: 'white', lineHeight: 0.9, letterSpacing: '-0.03em', marginBottom: '1rem' }}>
@@ -87,7 +82,12 @@ function V2(props: BlockProps) {
         {/* Droite — chiffres alignés sur la baseline */}
         <div>
           {displayStats.map((stat, i) => (
-            <div key={i} style={{ display: 'flex', alignItems: 'baseline', gap: '2rem', padding: '1.75rem 0', borderBottom: i < displayStats.length - 1 ? '1px solid rgba(0,0,0,0.07)' : 'none' }}>
+            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '2rem', padding: '1.75rem 0', borderBottom: i < displayStats.length - 1 ? '1px solid rgba(0,0,0,0.07)' : 'none' }}>
+              <div style={{ flexShrink: 0, width: '2.25rem', height: '2.25rem', borderRadius: '0.375rem', backgroundColor: 'var(--color-primary)', opacity: 0.1, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+                <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Icon name={STAT_ICONS[i] ?? 'TrendingUp'} size={14} style={{ color: 'var(--color-primary)' }} />
+                </div>
+              </div>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.25rem, 5vw, 3.75rem)', fontWeight: 900, color: 'var(--color-primary)', lineHeight: 1, letterSpacing: '-0.03em', minWidth: '5.5rem' }}>
                 {stat.value}
               </div>
@@ -118,14 +118,10 @@ function V3(props: BlockProps) {
 
       <div style={{ position: 'relative', zIndex: 1, maxWidth: '72rem', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)' }}>
         {displayStats.map((stat, i) => (
-          <div key={i} style={{ position: 'relative', padding: '3.5rem 4rem', borderRight: i === 0 ? '1px solid rgba(0,0,0,0.07)' : 'none', overflow: 'hidden' }}>
-            {/* Filigrane chiffre en bas à droite */}
-            <div style={{ position: 'absolute', bottom: '0.5rem', right: '1.5rem', fontFamily: 'var(--font-display)', fontSize: 'clamp(6rem, 14vw, 11rem)', fontWeight: 900, color: 'var(--color-primary)', opacity: 0.04, lineHeight: 1, pointerEvents: 'none', userSelect: 'none', letterSpacing: '-0.04em' }}>
-              {stat.value}
-            </div>
-            {/* Ordinal */}
-            <div style={{ fontFamily: 'var(--font-accent)', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-primary)', opacity: 0.7, marginBottom: '0.875rem' }}>
-              {String(i + 1).padStart(2, '0')} —
+          <div key={i} style={{ padding: '3.5rem 4rem', borderRight: i === 0 ? '1px solid rgba(0,0,0,0.07)' : 'none' }}>
+            {/* Icône */}
+            <div style={{ width: '2.5rem', height: '2.5rem', borderRadius: '0.5rem', backgroundColor: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+              <Icon name={STAT_ICONS[i] ?? 'TrendingUp'} size={16} style={{ color: 'white' }} />
             </div>
             {/* Valeur monumentale */}
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(4rem, 10vw, 8rem)', fontWeight: 900, color: 'var(--color-text)', lineHeight: 0.9, letterSpacing: '-0.04em', marginBottom: '1.5rem' }}>
@@ -162,15 +158,12 @@ function V4(props: BlockProps) {
       <div style={{ maxWidth: '64rem', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
 
         {/* Stat vedette — colonne gauche entière */}
-        <div style={{ gridRow: 'span 3', position: 'relative', backgroundColor: 'var(--color-primary)', borderRadius: radius, padding: '2.75rem', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-          {/* Filigrane en fond */}
-          <div style={{ position: 'absolute', top: '1rem', right: '-0.5rem', fontFamily: 'var(--font-display)', fontSize: 'clamp(6rem, 14vw, 11rem)', fontWeight: 900, color: 'rgba(255,255,255,0.08)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none', letterSpacing: '-0.04em' }}>
-            {featured.value}
-          </div>
+        <div style={{ gridRow: 'span 3', backgroundColor: 'var(--color-primary)', borderRadius: radius, padding: '2.75rem', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
           {/* Contenu */}
-          <div style={{ position: 'relative', zIndex: 1 }}>
-            <div style={{ fontFamily: 'var(--font-accent)', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', marginBottom: '0.875rem' }}>
-              — 01
+          <div>
+            {/* Icône */}
+            <div style={{ width: '2.75rem', height: '2.75rem', borderRadius: '0.5rem', backgroundColor: 'rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+              <Icon name={STAT_ICONS[0] ?? 'TrendingUp'} size={18} style={{ color: 'white' }} />
             </div>
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(3rem, 7vw, 5rem)', fontWeight: 900, color: 'white', lineHeight: 0.9, letterSpacing: '-0.03em', marginBottom: '1rem' }}>
               {featured.value}
@@ -185,8 +178,12 @@ function V4(props: BlockProps) {
         {/* Stats secondaires */}
         {rest.map((stat, i) => (
           <div key={i} style={{ backgroundColor: 'white', borderRadius: radius, padding: '1.75rem 2rem', border: '1px solid rgba(0,0,0,0.07)' }}>
-            <div style={{ fontFamily: 'var(--font-accent)', fontSize: '0.68rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--color-primary)', opacity: 0.65, marginBottom: '0.625rem' }}>
-              — {String(i + 2).padStart(2, '0')}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', marginBottom: '0.875rem' }}>
+              <div style={{ width: '1.75rem', height: '1.75rem', borderRadius: '0.3rem', backgroundColor: 'var(--color-primary)', opacity: 0.1, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', flexShrink: 0 }}>
+                <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Icon name={STAT_ICONS[i + 1] ?? 'TrendingUp'} size={11} style={{ color: 'var(--color-primary)' }} />
+                </div>
+              </div>
             </div>
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', fontWeight: 900, color: 'var(--color-text)', lineHeight: 1, letterSpacing: '-0.02em', marginBottom: '0.5rem' }}>
               {stat.value}

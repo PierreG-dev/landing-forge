@@ -65,4 +65,10 @@ export const sportCoaching: Sector = {
       ],
     ],
   },
+  blockConfig: {
+    mandatory: ['services', 'testimonials'],
+    preferred: ['stats', 'about'],
+    excluded: ['faq'],
+    optionalCount: [3, 5],
+  },
 }

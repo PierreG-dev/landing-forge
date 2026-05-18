@@ -65,4 +65,10 @@ export const plombier: Sector = {
       ],
     ],
   },
+  blockConfig: {
+    mandatory: ['services', 'trust'],
+    preferred: ['faq', 'stats'],
+    excluded: ['gallery'],
+    optionalCount: [2, 4],
+  },
 }

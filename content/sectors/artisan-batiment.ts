@@ -65,4 +65,10 @@ export const artisanBatiment: Sector = {
       ],
     ],
   },
+  blockConfig: {
+    mandatory: ['services', 'trust'],
+    preferred: ['stats', 'faq'],
+    excluded: ['gallery'],
+    optionalCount: [2, 4],
+  },
 }

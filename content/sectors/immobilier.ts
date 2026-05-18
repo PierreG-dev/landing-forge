@@ -65,4 +65,10 @@ export const immobilier: Sector = {
       ],
     ],
   },
+  blockConfig: {
+    mandatory: ['gallery', 'services'],
+    preferred: ['stats', 'testimonials'],
+    excluded: ['faq'],
+    optionalCount: [2, 4],
+  },
 }

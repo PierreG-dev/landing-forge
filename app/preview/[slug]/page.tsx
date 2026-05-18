@@ -30,9 +30,21 @@ export default async function PreviewPage({
   const theme = themes.find((t) => t.id === record.themeId)
   const colors = colorCombos.find((c) => c.id === record.colorComboId)
   const fonts = fontCombos.find((f) => f.id === record.fontComboId)
-  const sector = sectorById[record.sector as SectorId]
+  let sector = sectorById[record.sector as SectorId]
 
   if (!theme || !colors || !fonts || !sector) notFound()
+
+  // Inject stored Unsplash images over empty sector defaults
+  if (record.heroImages || record.galleryImages) {
+    sector = {
+      ...sector,
+      images: {
+        ...sector.images,
+        hero: record.heroImages ? (JSON.parse(record.heroImages) as string[]) : sector.images.hero,
+        gallery: record.galleryImages ? (JSON.parse(record.galleryImages) as string[]) : sector.images.gallery,
+      },
+    }
+  }
 
   const blocks: BlockConfig[] = JSON.parse(record.blocks)
 

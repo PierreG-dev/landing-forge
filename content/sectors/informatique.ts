@@ -65,4 +65,10 @@ export const informatique: Sector = {
       ],
     ],
   },
+  blockConfig: {
+    mandatory: ['services', 'stats'],
+    preferred: ['faq', 'trust'],
+    excluded: ['gallery'],
+    optionalCount: [2, 4],
+  },
 }

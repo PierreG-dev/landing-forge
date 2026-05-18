@@ -71,7 +71,7 @@ function V2(props: BlockProps) {
         {displayItems.map((item, i) => (
           <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', padding: '1.5rem 1.75rem', backgroundColor: 'white', borderRadius: radius, border: '1px solid rgba(0,0,0,0.07)', borderLeft: '3px solid var(--color-primary)' }}>
             {/* Icône */}
-            <div style={{ flexShrink: 0, width: '3rem', height: '3rem', borderRadius: '0.625rem', background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ flexShrink: 0, width: '3rem', height: '3rem', borderRadius: '0.625rem', backgroundColor: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Icon name={item.icon} size={18} style={{ color: 'white' }} />
             </div>
             {/* Texte */}
@@ -113,10 +113,6 @@ function V3(props: BlockProps) {
             </div>
 
             <div style={{ position: 'relative', zIndex: 1 }}>
-              {/* Ordinal */}
-              <div style={{ fontFamily: 'var(--font-accent)', fontSize: '0.68rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginBottom: '1rem' }}>
-                — {String(i + 1).padStart(2, '0')}
-              </div>
               {/* Icône principale */}
               <div style={{ width: '2.5rem', height: '2.5rem', borderRadius: '0.5rem', border: '1px solid rgba(255,255,255,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
                 <Icon name={item.icon} size={16} style={{ color: 'white' }} />

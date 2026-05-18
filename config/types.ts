@@ -43,6 +43,7 @@ export type SectorId =
   | 'electricien'
   | 'plombier'
   | 'garage'
+  | 'generique'
 
 export type Theme = {
   id: string
@@ -102,6 +103,15 @@ export type FaqSet = Faq[]
 export type TrustItem = { icon: string; label: string; subtitle?: string }
 export type TrustSet = TrustItem[]
 
+export type OptionalBlockType = 'trust' | 'services' | 'stats' | 'about' | 'gallery' | 'testimonials' | 'faq'
+
+export type SectorBlockConfig = {
+  mandatory: OptionalBlockType[]
+  preferred: OptionalBlockType[]
+  excluded: OptionalBlockType[]
+  optionalCount: [number, number]
+}
+
 export type Sector = {
   id: SectorId
   label: string
@@ -120,4 +130,5 @@ export type Sector = {
     faqs: FaqSet[]
     trustItems: TrustSet[]
   }
+  blockConfig: SectorBlockConfig
 }

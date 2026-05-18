@@ -2,7 +2,7 @@ import { themes } from '@/config/themes.config'
 import { colorCombos } from '@/config/colors.config'
 import { fontCombos } from '@/config/fonts.config'
 import { sectorById } from '@/content/sectors/index'
-import type { Theme, ColorCombo, FontCombo, Sector, SectorId } from '@/config/types'
+import type { Theme, ColorCombo, FontCombo, Sector, SectorId, OptionalBlockType } from '@/config/types'
 import { generateSlug } from './slugger'
 import { generateCSSVariables } from './cssInjector'
 
@@ -81,6 +81,7 @@ function compatibilityScore(a: string[], b: string[]): number {
 }
 
 function weightedRandom<T extends { mood: string[] }>(items: T[], referenceMood: string[], rng: () => number): T {
+  if (items.length === 0) throw new Error('weightedRandom: empty items array — check config files')
   const scores = items.map((item) => ({
     item,
     weight: Math.max(1, compatibilityScore(item.mood, referenceMood)),
@@ -153,16 +154,45 @@ function pickOrdered(pool: BlockType[], count: number, rng: () => number): Block
   return OPTIONAL_BLOCK_ORDER.filter((t) => selected.has(t))
 }
 
+// Sector-aware optional block selection using SectorBlockConfig
+function pickSectorBlocks(sector: Sector, rng: () => number): OptionalBlockType[] {
+  const { mandatory, preferred, excluded, optionalCount } = sector.blockConfig
+  const [min, max] = optionalCount
+  const totalCount = min + Math.floor(rng() * (max - min + 1))
+
+  // Candidates: non-mandatory, non-excluded; preferred blocks appear 3× for weighting
+  const candidates = OPTIONAL_BLOCK_ORDER.filter((t): t is OptionalBlockType =>
+    !mandatory.includes(t as OptionalBlockType) && !excluded.includes(t as OptionalBlockType)
+  )
+  const weighted: OptionalBlockType[] = candidates.flatMap((t) =>
+    preferred.includes(t) ? [t, t, t] : [t]
+  )
+
+  const extraCount = Math.max(0, totalCount - mandatory.length)
+
+  // Shuffle weighted pool and pick unique extras
+  const picked = new Set<OptionalBlockType>()
+  const shuffled = [...weighted].sort(() => rng() - 0.5)
+  for (const t of shuffled) {
+    if (picked.size >= extraCount) break
+    picked.add(t)
+  }
+
+  // Merge mandatory + extras in canonical display order
+  const all = new Set([...mandatory, ...picked])
+  return OPTIONAL_BLOCK_ORDER.filter((t): t is OptionalBlockType => all.has(t as OptionalBlockType))
+}
+
 // ─── Main pipeline ────────────────────────────────────────────────────────────
 
 export function generateLanding(input: ProspectInput): GeneratedLanding {
   const seed = input.seed ?? Math.floor(Math.random() * 0x7fffffff)
   const rng = createRng(seed)
 
-  const sector = sectorById[input.sector as SectorId]
-  if (!sector) throw new Error(`Unknown sector: ${input.sector}`)
+  const sector = sectorById[input.sector as SectorId] ?? sectorById['generique']
 
   // 1. Theme: manual or uniform random
+  if (themes.length === 0) throw new Error('No themes configured')
   let theme: Theme
   if (input.themeId) {
     theme = themes.find((t) => t.id === input.themeId) ?? themes[Math.floor(rng() * themes.length)]
@@ -190,9 +220,8 @@ export function generateLanding(input: ProspectInput): GeneratedLanding {
     fonts = weightedRandom(fontCombos, [...theme.mood, ...colors.mood], rng)
   }
 
-  // 4. Optional blocks: 2–5 from 7, fixed order
-  const optionalCount = 2 + Math.floor(rng() * 4)
-  const optionalTypes = pickOrdered(OPTIONAL_BLOCK_ORDER, optionalCount, rng)
+  // 4. Optional blocks: sector-aware selection
+  const optionalTypes = pickSectorBlocks(sector, rng)
 
   // 5. Build full block list
   const allTypes: BlockType[] = ['hero', ...optionalTypes, 'cta', 'footer']

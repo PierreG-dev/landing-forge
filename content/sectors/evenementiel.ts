@@ -65,4 +65,10 @@ export const evenementiel: Sector = {
       ],
     ],
   },
+  blockConfig: {
+    mandatory: ['gallery', 'testimonials'],
+    preferred: ['services', 'stats'],
+    excluded: ['faq'],
+    optionalCount: [3, 5],
+  },
 }

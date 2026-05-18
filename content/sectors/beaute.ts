@@ -65,4 +65,10 @@ export const beaute: Sector = {
       ],
     ],
   },
+  blockConfig: {
+    mandatory: ['gallery', 'testimonials'],
+    preferred: ['services', 'about'],
+    excluded: ['stats'],
+    optionalCount: [3, 5],
+  },
 }

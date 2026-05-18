@@ -65,4 +65,10 @@ export const juridique: Sector = {
       ],
     ],
   },
+  blockConfig: {
+    mandatory: ['trust', 'about'],
+    preferred: ['faq', 'stats'],
+    excluded: ['gallery'],
+    optionalCount: [2, 4],
+  },
 }

@@ -3,6 +3,7 @@ import { generateLanding } from '@/lib/engine/assembler'
 import { prisma } from '@/lib/prisma'
 import { saveLanding } from '@/lib/db/saveLanding'
 import { isAuthorized } from '@/lib/auth'
+import { fetchSectorImages } from '@/lib/unsplash'
 
 export async function POST(
   request: NextRequest,
@@ -35,7 +36,16 @@ export async function POST(
     // no seed → fresh random
   })
 
-  await saveLanding(landing, 'regenerate', slug)
+  const images = await fetchSectorImages(record.sector)
+  const imageExtra =
+    images.hero.length > 0
+      ? {
+          heroImages: JSON.stringify(images.hero),
+          galleryImages: JSON.stringify(images.gallery),
+        }
+      : undefined
+
+  await saveLanding(landing, 'regenerate', slug, imageExtra)
 
   return Response.json({ slug })
 }

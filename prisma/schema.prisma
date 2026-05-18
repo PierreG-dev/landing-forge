@@ -27,9 +27,11 @@ model Landing {
   secondaryHex String
   fontComboId  String
   seed         Int
-  blocks       String
-  views        Int      @default(0)
-  savedVia     String
+  blocks        String
+  heroImages    String?
+  galleryImages String?
+  views         Int      @default(0)
+  savedVia      String
   visits       Visit[]
 }
 

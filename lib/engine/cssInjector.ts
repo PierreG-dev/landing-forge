@@ -8,6 +8,12 @@ export type CSSInjectorInput = {
   secondaryHex?: string
 }
 
+const HEX_FALLBACK = '#2563eb'
+
+function isValidHex(hex: string): boolean {
+  return /^#?[0-9a-fA-F]{6}$/.test(hex)
+}
+
 function hexToLuminance(hex: string): number {
   const clean = hex.replace('#', '')
   const r = parseInt(clean.slice(0, 2), 16) / 255
@@ -56,8 +62,8 @@ function fontStack(family: string, category: 'serif' | 'sans' | 'mono' = 'sans')
 export function generateCSSVariables(input: CSSInjectorInput): string {
   const { colors, fonts, primaryHex, secondaryHex } = input
 
-  const primary = primaryHex ?? colors.colors.primary
-  const secondary = secondaryHex ?? colors.colors.secondary
+  const primary = (primaryHex && isValidHex(primaryHex)) ? primaryHex : (isValidHex(colors.colors.primary) ? colors.colors.primary : HEX_FALLBACK)
+  const secondary = (secondaryHex && isValidHex(secondaryHex)) ? secondaryHex : (isValidHex(colors.colors.secondary) ? colors.colors.secondary : HEX_FALLBACK)
 
   let surface: string
   let text: string
